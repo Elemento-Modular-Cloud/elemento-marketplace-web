@@ -1,0 +1,125 @@
+version: "3.8"
+
+services:
+  cronjob:
+    build: ./cronjob
+    hostname: cronjob
+    # ports:
+    #   - "x:x"
+    # networks:
+    #   - net
+    restart: unless-stopped
+
+  ftp:
+    build: ./ftp
+    hostname: ftp
+    # ports:
+    #   - "x:x"
+    # networks:
+    #   - net
+    restart: unless-stopped
+
+  homepage:
+    build: ./homepage
+    container_name: homepage
+    hostname: homepage
+    ports:
+      - "80:80"
+    networks:
+      - net
+    restart: unless-stopped
+
+  mail:
+    build: ./mail
+    hostname: mail
+    # ports:
+    #   - "x:x"
+    # networks:
+    #   - net
+    restart: unless-stopped
+
+  mysql:
+    image: mysql
+    # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+    # (this is just an example, not intended to be a production configuration)
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
+  php_fpm:
+    build: ./php_fpm
+    hostname: php_fpm
+    # ports:
+    #   - "x:x"
+    # networks:
+    #   - net
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin
+    hostname: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+  
+  portainer:
+    image: portainer/portainer-ce:latest
+    ports:
+      - 9443:9443
+    volumes:
+      - data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+
+  swag:
+    image: lscr.io/linuxserver/swag
+    container_name: swag
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - URL=yourdomain.url
+      - SUBDOMAINS=www,
+      - VALIDATION=http
+      - CERTPROVIDER= #optional
+      - DNSPLUGIN=cloudflare #optional
+      - DUCKDNSTOKEN=<token> #optional
+      - EMAIL=<e-mail> #optional
+      - ONLY_SUBDOMAINS=false #optional
+      - EXTRA_DOMAINS=<extradomains> #optional
+      - STAGING=false #optional
+    volumes:
+      - </path/to/appdata/config>:/config
+    ports:
+      - 443:443
+      - 80:80 #optional
+    restart: unless-stopped
+
+  traefik:
+    image: "traefik:v2.11"
+    container_name: "traefik"
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+volumes:
+  cache:
+    driver: local
+
+networks:
+  net:
+    driver: bridge
