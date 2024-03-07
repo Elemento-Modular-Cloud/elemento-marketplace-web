@@ -1,72 +1,45 @@
 version: "3.8"
 
 services:
-  cronjob:
-    build: ./cronjob
-    hostname: cronjob
-    # ports:
-    #   - "x:x"
-    # networks:
-    #   - net
-    restart: unless-stopped
-
   ftp:
-    build: ./ftp
-    hostname: ftp
-    # ports:
-    #   - "x:x"
-    # networks:
-    #   - net
-    restart: unless-stopped
-
-  homepage:
-    build: ./homepage
-    container_name: homepage
-    hostname: homepage
+    image: delfer/alpine-ftp-server
     ports:
-      - "80:80"
+      - "21:21"
+      - 21000-21010:21000-21010
+    environment:
+      - USERS="admin|shh_it_is_a_secret!"
+      - ADDRESS=ftp.elemento.marketplace
+    volumes: 
+      - data:/home
     networks:
       - net
-    restart: unless-stopped
 
-  mail:
-    build: ./mail
-    hostname: mail
-    # ports:
-    #   - "x:x"
-    # networks:
-    #   - net
-    restart: unless-stopped
-
-  mysql:
-    image: mysql
-    # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
-    # (this is just an example, not intended to be a production configuration)
-    command: --default-authentication-plugin=mysql_native_password
+  db:
+    image: mariadb:10.6
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: example
-
-  php_fpm:
-    build: ./php_fpm
-    hostname: php_fpm
-    # ports:
-    #   - "x:x"
-    # networks:
-    #   - net
-    restart: unless-stopped
+      MYSQL_ROOT_PASSWORD: notSecureChangeMe
 
   phpmyadmin:
-    image: phpmyadmin
     container_name: phpmyadmin
-    hostname: phpmyadmin
+    image: phpmyadmin
     restart: always
     ports:
-      - 8080:80
+      - 8081:8081
     environment:
       - PMA_ARBITRARY=1
-  
+
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    ports:
+      - 3000:3000
+    volumes:
+      - ./docker/homepage/config:/app/config 
+      - /var/run/docker.sock:/var/run/docker.sock 
+    
   portainer:
+    container_name: portainer
     image: portainer/portainer-ce:latest
     ports:
       - 9443:9443
@@ -75,49 +48,62 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
 
+  crontab-ui:
+    container_name: crontab-ui
+    build: .
+    image: alseambusher/crontab-ui
+    network_mode: bridge
+    ports:
+      - 8000:8000
+
+  traefik:
+    container_name: traefik
+    image: traefik:v2.11
+    command: --api.insecure=true --providers.docker
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - ./docker/traefik/traefik.yml:/etc/traefik/traefik.yml
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  whoami:
+    container_name: whoami
+    image: traefik/whoami
+    labels:
+      - "traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)"
+
   swag:
-    image: lscr.io/linuxserver/swag
+    image: lscr.io/linuxserver/swag:latest
     container_name: swag
     cap_add:
       - NET_ADMIN
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/London
+      - TZ=Etc/UTC
       - URL=yourdomain.url
-      - SUBDOMAINS=www,
       - VALIDATION=http
+      - SUBDOMAINS=www, #optional
       - CERTPROVIDER= #optional
       - DNSPLUGIN=cloudflare #optional
-      - DUCKDNSTOKEN=<token> #optional
-      - EMAIL=<e-mail> #optional
+      - PROPAGATION= #optional
+      - EMAIL= #optional
       - ONLY_SUBDOMAINS=false #optional
-      - EXTRA_DOMAINS=<extradomains> #optional
+      - EXTRA_DOMAINS= #optional
       - STAGING=false #optional
     volumes:
-      - </path/to/appdata/config>:/config
+      - config:/config
     ports:
       - 443:443
-      - 80:80 #optional
     restart: unless-stopped
-
-  traefik:
-    image: "traefik:v2.11"
-    container_name: "traefik"
-    command:
-      #- "--log.level=DEBUG"
-      - "--api.insecure=true"
-      - "--providers.docker=true"
-      - "--providers.docker.exposedbydefault=false"
-      - "--entrypoints.web.address=:80"
-    ports:
-      - "80:80"
-      - "8080:8080"
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
 volumes:
   cache:
+    driver: local
+  data:
+    driver: local
+  config:
     driver: local
 
 networks:
