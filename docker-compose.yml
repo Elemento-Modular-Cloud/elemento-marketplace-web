@@ -19,16 +19,16 @@ services:
     image: phpmyadmin/phpmyadmin:latest
     restart: always
     ports:
-      - "8000:80"
+      - "8081:80"
     environment:
       - PMA_ARBITRARY=1
       - MYSQL_ROOT_PASSWORD=your_secure_root_password
       - PMA_HOST=mysql_db
-      - PMA_PORT=3306
+      - PMA_PORT=8080
     networks:
       - net
     depends_on:
-      - mysql_db
+      - mariadb
     deploy:
       replicas: 1
       placement:
@@ -47,17 +47,16 @@ services:
     networks:
       - net
 
-  mysql_db:
-    image: mysql:8.0
+  mariadb:
+    image: mariadb:11.0
     restart: always
-    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: your_secure_root_password
       MYSQL_DATABASE: your_database_name
       MYSQL_USER: your_database_user
       MYSQL_PASSWORD: your_database_password
     volumes:
-      - mysql_data:/var/lib/mysql
+      - mariadb_data:/var/lib/mysql
     expose:
       - "3306"
     healthcheck:
@@ -151,7 +150,7 @@ services:
       - net
 
 volumes:
-  mysql_data:
+  mariadb_data:
     driver: local
   data:
     driver: local
