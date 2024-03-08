@@ -1,18 +1,28 @@
 version: "3.8"
 
 services:
-  ftp:
-    image: delfer/alpine-ftp-server
+  ftp-server:
+    image: zhabba/pure-ftpd-arm64 # NOTE: this is a custom image for arm64, the original image is stilliard/pure-ftpd (amd64)
+    container_name: pure-ftpd
     ports:
       - "21:21"
-      - "21000-21010:21000-21010"
+      - "30000-30009:30000-30009" # for passive mode
+    volumes:
+      - "./ftp/data:/home/admin/"
+      - "./ftp/passwd:/etc/pure-ftpd/passwd"
+    # uncomment for ssl/tls, see https://github.com/stilliard/docker-pure-ftpd#tls
+    #      - "/folder_on_disk/ssl:/etc/ssl/private/"
+    # or ssl/tls with Let's Encrypt (cert and key as two files)
+    #      - "/etc/letsencrypt/live/<your_server>/cert.pem:/etc/ssl/private/pure-ftpd-cert.pem"
+    #      - "/etc/letsencrypt/live/<your_server>/privkey.pem:/etc/ssl/private/pure-ftpd-key.pem"
     environment:
-      - USERS=admin|shh_it_is_a_secret!
-      - ADDRESS=ftp.elemento.marketplace
-    volumes: 
-      - data:/home
-    networks:
-      - net
+      PUBLICHOST: "localhost"
+      FTP_USER_NAME: admin
+      FTP_USER_PASS: change_me
+      FTP_USER_HOME: /home/admin
+    # also for ssl/tls:
+    #      ADDED_FLAGS: "--tls=2"
+    restart: always
 
   phpmyadmin:
     container_name: phpmyadmin
