@@ -14,24 +14,64 @@ services:
     networks:
       - net
 
-  db:
-    image: mariadb:10.6
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: notSecureChangeMe
-
   phpmyadmin:
     container_name: phpmyadmin
-    image: phpmyadmin
+    image: phpmyadmin/phpmyadmin:latest
     restart: always
     ports:
-      - "8081:8081"
+      - "8000:80"
     environment:
       - PMA_ARBITRARY=1
+      - MYSQL_ROOT_PASSWORD=your_secure_root_password
+      - PMA_HOST=mysql_db
+      - PMA_PORT=3306
     networks:
       - net
     depends_on:
-      - db
+      - mysql_db
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+
+  app:
+    container_name: phpfpm_app
+    build:
+      context: .
+      dockerfile: php_fpm/Dockerfile
+    restart: always
+    working_dir: /var/www
+    volumes:
+      - ../src:/var/www
+    networks:
+      - net
+
+  mysql_db:
+    image: mysql:8.0
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: your_secure_root_password
+      MYSQL_DATABASE: your_database_name
+      MYSQL_USER: your_database_user
+      MYSQL_PASSWORD: your_database_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+    expose:
+      - "3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+    networks:
+      - net
 
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
@@ -111,7 +151,7 @@ services:
       - net
 
 volumes:
-  cache:
+  mysql_data:
     driver: local
   data:
     driver: local
