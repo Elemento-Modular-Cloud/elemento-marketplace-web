@@ -2,10 +2,9 @@
 
 # Specs
 
-- [x] Container per accesso [FTP](https://github.com/delfer/docker-alpine-ftp-server) ([github](https://github.com/delfer/docker-alpine-ftp-server))
-  - [ ] Config of users
-  - [ ] Config of the address
-  - [ ] Check if the volume is shared and usable
+- [x] Container per accesso [FTP](https://hub.docker.com/r/stilliard/pure-ftpd/) ([github](https://github.com/stilliard/docker-pure-ftpd?tab=readme-ov-file))
+  - [ ] Config of TLS
+  - [ ] Define the scope of ftp-data
 - [x] Uno o piu' container [DB MySQL](https://hub.docker.com/_/mariadb) con dashboard [phpmyadmin](https://hub.docker.com/_/phpmyadmin)
   - [ ] Are there some specific requirements (security? speed? ...)?
   - [ ] Lookup on how to handle multiple instances
