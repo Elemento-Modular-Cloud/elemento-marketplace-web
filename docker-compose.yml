@@ -38,7 +38,7 @@ services:
     networks:
       - net
     depends_on:
-      - mariadb
+      - mysql_db
     deploy:
       replicas: 1
       placement:
@@ -56,17 +56,20 @@ services:
       - ../src:/var/www
     networks:
       - net
+    depends_on:
+      - mysql_db
 
-  mariadb:
-    image: mariadb:11.0
+  mysql_db:
+    image: mysql:8.0
     restart: always
+    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: your_secure_root_password
       MYSQL_DATABASE: your_database_name
       MYSQL_USER: your_database_user
       MYSQL_PASSWORD: your_database_password
     volumes:
-      - mariadb_data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
     expose:
       - "3306"
     healthcheck:
@@ -160,7 +163,7 @@ services:
       - net
 
 volumes:
-  mariadb_data:
+  mysql_data:
     driver: local
   data:
     driver: local
