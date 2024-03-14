@@ -3,14 +3,17 @@
 # Specs
 
 - [x] Container per accesso [FTP](https://hub.docker.com/r/stilliard/pure-ftpd/) ([github](https://github.com/stilliard/docker-pure-ftpd?tab=readme-ov-file))
-  - [ ] Config of TLS
-  - [ ] Define the scope of ftp-data
+  - [ ] Config of TLS -> configuration of traefik
+  - [x] Define the scope of ftp-data
 - [x] Uno o piu' container [DB MySQL](https://hub.docker.com/_/mariadb) con dashboard [phpmyadmin](https://hub.docker.com/_/phpmyadmin)
   - [ ] Are there some specific requirements (security? speed? ...)?
   - [ ] Lookup on how to handle multiple instances
 - [x] Container per esecuzione cronjob [crontab-ui](https://github.com/alseambusher/crontab-ui)
   - [ ] check on x86
-- [ ] Uno o piu' container per [mail server](https://docs.postalserver.io/getting-started) con dashboard per creazione account
+- [x] Uno o piu' container per [mail server](https://docs.postalserver.io/getting-started) con dashboard per creazione account
+  - [ ] dns configuration
+  - [ ] domain configuration
+  - [ ] collaboration with traefik
 - [ ] Container per esecuzione PHP FPM da v7 a successive
 - [x] Container per gestione certificati SSL (i.e. swag) (nginx)
   - [ ] to be configured 
