@@ -1,9 +1,3 @@
-FROM php:8.3.4RC1-fpm
-
-RUN apt-get update && apt-get install -y \
-    git \
-    curl \
-    zip \
-    unzip
-
-WORKDIR /var/www
+FROM php:7.0-fpm
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+RUN docker-php-ext-enable mysqli

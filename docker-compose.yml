@@ -25,8 +25,8 @@ services:
     restart: always
 
   phpmyadmin:
-    container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
     restart: always
     #ports:
       #- "8081:80"
@@ -49,14 +49,12 @@ services:
           - node.role == manager
 
   app:
+    build: ./php_fpm
     container_name: phpfpm_app
-    build:
-      context: .
-      dockerfile: php_fpm/Dockerfile
     restart: always
-    working_dir: /var/www
+    working_dir: /var/www/html/
     volumes:
-      - ../src:/var/www
+      - ../src:/var/www/html/
     networks:
       - net
     depends_on:
@@ -139,8 +137,10 @@ services:
     volumes:
       - ./traefik/traefik.yml:/etc/traefik/traefik.yml
       - /var/run/docker.sock:/var/run/docker.sock
+      - ../src:/var/www/html/
     networks:
       - net
+    restart: unless-stopped
 
   whoami:
     container_name: whoami
