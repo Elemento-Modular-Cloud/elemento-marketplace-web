@@ -28,13 +28,16 @@ services:
     container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin:latest
     restart: always
-    ports:
-      - "8081:80"
+    #ports:
+      #- "8081:80"
     environment:
       - PMA_ARBITRARY=1
       - MYSQL_ROOT_PASSWORD=your_secure_root_password
       - PMA_HOST=mysql_db
       - PMA_PORT=8080
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin.web.elemento.cloud`)"
     networks:
       - net
     depends_on:
@@ -61,6 +64,7 @@ services:
 
   mysql_db:
     image: mysql:8.0
+    container_name: mysql_db
     restart: always
     command: --default-authentication-plugin=mysql_native_password
     environment:
@@ -88,10 +92,13 @@ services:
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
-    ports:
-      - "3000:3000"
+    #ports:
+      #- "3000:3000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.homepage.rule=Host(`homepage.web.elemento.cloud`)"
     volumes:
-      - ./docker/homepage/config:/app/config 
+      - ./homepage/config:/app/config 
       - /var/run/docker.sock:/var/run/docker.sock 
     networks:
       - net
@@ -99,8 +106,11 @@ services:
   portainer:
     container_name: portainer
     image: portainer/portainer-ce:latest
-    ports:
-      - "9443:9443"
+    #ports:
+      #- "9443:9443"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portainer.rule=Host(`portainer.web.elemento.cloud`)"
     volumes:
       - data:/data
       - /var/run/docker.sock:/var/run/docker.sock
@@ -113,8 +123,11 @@ services:
     build: .
     image: alseambusher/crontab-ui
     network_mode: bridge
-    ports:
-      - "8000:8000"
+    #ports:
+      #- "8000:8000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.crontab.rule=Host(`crontab.web.elemento.cloud`)"
 
   traefik:
     container_name: traefik
@@ -124,7 +137,7 @@ services:
       - "80:80"
       - "8080:8080"
     volumes:
-      - ./docker/traefik/traefik.yml:/etc/traefik/traefik.yml
+      - ./traefik/traefik.yml:/etc/traefik/traefik.yml
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - net
@@ -133,7 +146,8 @@ services:
     container_name: whoami
     image: traefik/whoami
     labels:
-      - "traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)"
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`whoami.web.elemento.cloud`)"
 
   swag:
     container_name: swag
@@ -156,8 +170,11 @@ services:
       - STAGING=false
     volumes:
       - config:/config
-    ports:
-      - "443:443"
+    #ports:
+      #- "443:443"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.swag.rule=Host(`swag.web.elemento.cloud`)"
     restart: unless-stopped
     networks:
       - net
