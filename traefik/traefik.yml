@@ -11,9 +11,11 @@ entryPoints:
         #entryPoint:
           #to: websecure
           #scheme: https
+      #tls:
+        #certResolver: leresolver
 
-  websecure:
-    address: ":443"
+  #websecure:
+    #address: ":443"
     #http:
       #tls:
         #certResolver: leresolver

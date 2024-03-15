@@ -34,7 +34,7 @@ services:
       - PMA_ARBITRARY=1
       - MYSQL_ROOT_PASSWORD=your_secure_root_password
       - PMA_HOST=mysql_db
-      - PMA_PORT=3306
+      - PMA_PORT=3300
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin.web.elemento.cloud`)"
@@ -64,7 +64,6 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.app.rule=Host(`app.web.elemento.cloud`)"
-      - "traefik.http.services.app.loadbalancer.server.port=9000"
 
   mysql_db:
     image: mysql:8.0
@@ -181,11 +180,8 @@ services:
       - STAGING=false
     volumes:
       - config:/config
-    #ports:
-      #- "443:443"
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.swag.rule=Host(`swag.web.elemento.cloud`)"
+    ports:
+      - "443:443"
     restart: unless-stopped
     networks:
       - net
