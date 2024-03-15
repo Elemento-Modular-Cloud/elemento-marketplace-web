@@ -6,8 +6,6 @@
   - [ ] Config of TLS
   - [ ] Define the scope of ftp-data
 - [x] Uno o piu' container [DB MySQL](https://hub.docker.com/_/mariadb) con dashboard [phpmyadmin](https://hub.docker.com/_/phpmyadmin)
-  - [ ] Are there some specific requirements (security? speed? ...)?
-  - [ ] Lookup on how to handle multiple instances
 - [x] Container per esecuzione cronjob [crontab-ui](https://github.com/alseambusher/crontab-ui)
   - [ ] check on x86
 - [ ] Uno o piu' container per [mail server](https://docs.postalserver.io/getting-started) con dashboard per creazione account
