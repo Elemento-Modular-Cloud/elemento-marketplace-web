@@ -34,7 +34,7 @@ services:
       - PMA_ARBITRARY=1
       - MYSQL_ROOT_PASSWORD=your_secure_root_password
       - PMA_HOST=mysql_db
-      - PMA_PORT=8080
+      - PMA_PORT=8081
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin.web.elemento.cloud`)"
@@ -112,12 +112,12 @@ services:
   portainer:
     container_name: portainer
     image: portainer/portainer-ce:latest
-    #ports:
-      #- "9443:9443"
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.portainer.rule=Host(`portainer.web.elemento.cloud`)"
-      - "traefik.http.services.portainer.loadbalancer.server.port=9443"
+    ports:
+      - "9443:9443"
+    #labels:
+      #- "traefik.enable=true"
+      #- "traefik.http.routers.portainer.rule=Host(`portainer.web.elemento.cloud`)"
+      #- "traefik.http.services.portainer.loadbalancer.server.port=9443"
     volumes:
       - data:/data
       - /var/run/docker.sock:/var/run/docker.sock
