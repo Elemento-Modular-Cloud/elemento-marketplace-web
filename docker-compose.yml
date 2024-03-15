@@ -60,6 +60,9 @@ services:
       - net
     depends_on:
       - mysql_db
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portainer.rule=Host(`app.web.elemento.cloud`)"
 
   mysql_db:
     image: mysql:8.0
