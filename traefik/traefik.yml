@@ -14,9 +14,9 @@ entryPoints:
 
   websecure:
     address: ":443"
-    http:
-      tls:
-        certResolver: leresolver
+    #http:
+      #tls:
+        #certResolver: leresolver
 
 providers:
   docker:
