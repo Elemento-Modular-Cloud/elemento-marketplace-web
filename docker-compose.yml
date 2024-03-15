@@ -38,6 +38,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin.web.elemento.cloud`)"
+      - "traefik.http.services.phpmyadmin.loadbalancer.server.port=8081"
     networks:
       - net
     depends_on:
@@ -95,6 +96,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.homepage.rule=Host(`homepage.web.elemento.cloud`)"
+      - "traefik.http.services.homepage.loadbalancer.server.port=3000"
     volumes:
       - ./homepage/config:/app/config 
       - /var/run/docker.sock:/var/run/docker.sock 
@@ -109,6 +111,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.portainer.rule=Host(`portainer.web.elemento.cloud`)"
+      - "traefik.http.services.portainer.loadbalancer.server.port=9443"
     volumes:
       - data:/data
       - /var/run/docker.sock:/var/run/docker.sock
@@ -126,6 +129,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.crontab.rule=Host(`crontab.web.elemento.cloud`)"
+      - "traefik.http.services.crontab.loadbalancer.server.port=8000"
 
   traefik:
     container_name: traefik
@@ -148,6 +152,8 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.whoami.rule=Host(`whoami.web.elemento.cloud`)"
+    networks:
+      - net
 
   swag:
     container_name: swag
