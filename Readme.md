@@ -21,6 +21,10 @@
   - [ ] Integration of services in homepage
 - [ ] homepage autoconfig
 
+# System design
+
+![System design](./img/system-design.png)
+
 # Conventions
 
 In Elemento we use [Google Style coding conventions](https://google.github.io/styleguide/).
