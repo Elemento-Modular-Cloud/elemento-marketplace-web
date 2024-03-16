@@ -110,12 +110,11 @@ services:
   portainer:
     container_name: portainer
     image: portainer/portainer-ce:latest
-    ports:
-      - "9443:9443"
-    #labels:
-      #- "traefik.enable=true"
-      #- "traefik.http.routers.portainer.rule=Host(`portainer.web.elemento.cloud`)"
-      #- "traefik.http.services.portainer.loadbalancer.server.port=9443"
+    #ports:
+      #- "9443:9443"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portainer.rule=Host(`portainer.web.elemento.cloud`)"
     volumes:
       - data:/data
       - /var/run/docker.sock:/var/run/docker.sock
@@ -156,7 +155,7 @@ services:
     image: traefik/whoami
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`whoami.localhost`)"
+      - "traefik.http.routers.whoami.rule=Host(`whoami.web.elemento.cloud`)"
     networks:
       - net
 
