@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   ftp-server:
-    image: zhabba/pure-ftpd-arm64 # NOTE: this is a custom image for arm64, the original image is stilliard/pure-ftpd (amd64)
+    image: stilliard/pure-ftpd # NOTE: zhabba/pure-ftpd-arm64 is a custom image for arm64, the original image is stilliard/pure-ftpd (amd64)
     container_name: pure-ftpd
     ports:
       - "21:21"
@@ -110,8 +110,8 @@ services:
   portainer:
     container_name: portainer
     image: portainer/portainer-ce:latest
-    #ports:
-      #- "9443:9443"
+    ports:
+      - "9443:9443"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.portainer.rule=Host(`portainer.web.elemento.cloud`)"
