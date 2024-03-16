@@ -141,6 +141,7 @@ services:
     command: --api.insecure=true --providers.docker
     ports:
       - "80:80"
+      - "443:443"
       - "8080:8080"
     volumes:
       - ./traefik/traefik.yml:/etc/traefik/traefik.yml
@@ -155,36 +156,36 @@ services:
     image: traefik/whoami
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`whoami.web.elemento.cloud`)"
+      - "traefik.http.routers.whoami.rule=Host(`whoami.localhost`)"
     networks:
       - net
 
-  swag:
-    container_name: swag
-    image: lscr.io/linuxserver/swag:latest
-    cap_add:
-      - NET_ADMIN
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Etc/UTC
-      - URL=yourdomain.url
-      - VALIDATION=http
-      - SUBDOMAINS=www,
-      - CERTPROVIDER=
-      - DNSPLUGIN=cloudflare
-      - PROPAGATION=
-      - EMAIL=
-      - ONLY_SUBDOMAINS=false
-      - EXTRA_DOMAINS=
-      - STAGING=false
-    volumes:
-      - config:/config
-    ports:
-      - "443:443"
-    restart: unless-stopped
-    networks:
-      - net
+  # swag:
+  #   container_name: swag
+  #   image: lscr.io/linuxserver/swag:latest
+  #   cap_add:
+  #     - NET_ADMIN
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Etc/UTC
+  #     - URL=yourdomain.url
+  #     - VALIDATION=http
+  #     - SUBDOMAINS=www,
+  #     - CERTPROVIDER=
+  #     - DNSPLUGIN=cloudflare
+  #     - PROPAGATION=
+  #     - EMAIL=
+  #     - ONLY_SUBDOMAINS=false
+  #     - EXTRA_DOMAINS=
+  #     - STAGING=false
+  #   volumes:
+  #     - config:/config
+  #   ports:
+  #     - "443:443"
+  #   restart: unless-stopped
+  #   networks:
+  #     - net
 
 volumes:
   mysql_data:
