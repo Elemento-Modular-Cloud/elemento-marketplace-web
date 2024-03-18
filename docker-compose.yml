@@ -151,3 +151,5 @@ volumes:
 
 networks:
   net:
+    external: true
+    name: "net"
