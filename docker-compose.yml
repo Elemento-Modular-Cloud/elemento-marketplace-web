@@ -103,19 +103,19 @@ services:
       - "traefik.http.routers.homepage.rule=Host(`homepage.web.elemento.cloud`)"
       - "traefik.http.services.homepage.loadbalancer.server.port=3000"
 
-  portainer:
-    image: portainer/portainer-ce:latest
-    ports:
-      - "9443:9443"
-    volumes:
-      - data:/data
-      - /var/run/docker.sock:/var/run/docker.sock
-    restart: unless-stopped
-    networks:
-      - net
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.portainer.rule=Host(`portainer.web.elemento.cloud`)"
+  # portainer:
+  #   image: portainer/portainer-ce:latest
+  #   ports:
+  #     - "9443:9443"
+  #   volumes:
+  #     - data:/data
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   restart: unless-stopped
+  #   networks:
+  #     - net
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.portainer.rule=Host(`portainer.web.elemento.cloud`)"
 
   crontab-ui:
     image: alseambusher/crontab-ui
@@ -155,4 +155,4 @@ volumes:
 
 networks:
   net:
-    driver: bridge
+    external: true
