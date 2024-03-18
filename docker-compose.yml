@@ -21,7 +21,6 @@ services:
       FTP_USER_HOME: /home/admin
     # also for ssl/tls:
     #      ADDED_FLAGS: "--tls=2"
-    restart: always
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
@@ -76,8 +75,6 @@ services:
       MYSQL_PASSWORD: your_database_password
     volumes:
       - mysql_data:/var/lib/mysql
-    expose:
-      - "3306"
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
@@ -139,7 +136,6 @@ services:
       - ../src:/var/www/html/
     networks:
       - net
-    restart: unless-stopped
 
   whoami:
     image: traefik/whoami
@@ -155,4 +151,3 @@ volumes:
 
 networks:
   net:
-    external: true
