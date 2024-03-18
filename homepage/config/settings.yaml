@@ -21,6 +21,13 @@ background:
 hideVersion: true
 showStats: true
 
+layout:
+  Services:
+    style: row
+    columns: 3
+  Admin Tools:
+    style: row
+    columns: 3
 
 # ASSETS
 # Logo: https://raw.githubusercontent.com/Elemento-Modular-Cloud/graphic-assets/main/logos/horizontal/Logo%20horizontal%20darkbg%20transp.svg
