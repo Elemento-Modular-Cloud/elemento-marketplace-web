@@ -2,6 +2,18 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/settings
 
+title: Elemento Modular Cloud
+favicon: https://assets-global.website-files.com/649eac850c6f83f44258489f/649ead5c294631bedca510d4_favicon-32x32.png
+headerStyle: boxed
+
+theme: dark
+color: slate
+language: en
+
 providers:
   openweathermap: openweathermapapikey
   weatherapi: weatherapiapikey
+
+
+
+# Logo: https://raw.githubusercontent.com/Elemento-Modular-Cloud/graphic-assets/main/logos/horizontal/Logo%20horizontal%20darkbg%20transp.svg
