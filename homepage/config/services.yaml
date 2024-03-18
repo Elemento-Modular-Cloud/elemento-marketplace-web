@@ -2,27 +2,21 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/services
 
-- Services:
-    - Web hosting:
-        - PHP Application:
-            icon: cloud.png
-            href: http://app.web.elemento.cloud
-            description: Hosted web application
-            widget: 
-                - logo:
-                    icon: https://raw.githubusercontent.com/Elemento-Modular-Cloud/graphic-assets/main/logos/horizontal/Logo%20horizontal%20darkbg%20transp.svg
-
+- Services:   
+    - Web Application:
+        icon: php.png
+        href: http://app.web.elemento.cloud
+        description: Hosted web Application
+        
     - Database:
-        - Phpmyadmin:
-            icon: phpmyadmin.png
-            href: http://phpmyadmin.web.elemento.cloud
-            description: Access your data!
+        icon: phpmyadmin.png
+        href: http://phpmyadmin.web.elemento.cloud
+        description: Access your data!
 
-    - Mail:
-        - Mail client:
-            icon: docker-mailserver.png
-            href: http://localhost/
-            description: Mail box
+    - Mail client:
+        icon: docker-mailserver.png
+        href: http://localhost/
+        description: Mail box
 
 - Admin Tools:
     - Portainer dashboard:

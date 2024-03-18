@@ -3,7 +3,7 @@
 # https://gethomepage.dev/latest/configs/service-widgets
 
 - logo:
-    icon: https://raw.githubusercontent.com/Elemento-Modular-Cloud/graphic-assets/main/logos/horizontal/Logo%20horizontal%20darkbg%20transp.svg
+    icon: https://assets-global.website-files.com/649eac850c6f83f44258489f/649eadd6c8cc95d7d785c933_android-chrome-512x512.png
 
 - resources:
     cpu: true

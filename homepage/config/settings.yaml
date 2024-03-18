@@ -14,8 +14,8 @@ cardBlur: sm # sm, "", md, etc... see https://tailwindcss.com/docs/backdrop-blur
 background:
   image: https://assets-global.website-files.com/649ecae4dff1a5cd277787df/65d5e74b1c2fd5f418269961_Cloudfest_flip.webp
   blur: sm # sm, "", md, xl... see https://tailwindcss.com/docs/backdrop-blur
-  saturate: 50 # 0, 50, 100... see https://tailwindcss.com/docs/backdrop-saturate
-  brightness: 50 # 0, 50, 75... see https://tailwindcss.com/docs/backdrop-brightness
+  saturate: 70 # 0, 50, 100... see https://tailwindcss.com/docs/backdrop-saturate
+  brightness: 60 # 0, 50, 75... see https://tailwindcss.com/docs/backdrop-brightness
   opacity: 50 # 0-100
 
 hideVersion: true
