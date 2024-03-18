@@ -51,13 +51,13 @@ services:
     networks:
       - net
 
-  web:
+  nginx:
     image: nginx:alpine
     depends_on:
       - php
     labels:
       - "traefik.enable=true"
-      - traefik.port=80
+      - "traefik.port=80"
       - "traefik.http.routers.nginx.rule=Host(`nginx.web.elemento.cloud`)"
     volumes:
       - ./src/public:/var/www/html/
