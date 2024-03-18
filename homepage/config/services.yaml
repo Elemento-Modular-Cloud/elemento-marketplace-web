@@ -2,8 +2,52 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/services
 
-- My First Group:
-    - My First Service:
-        href: http://localhost/
-        description: Homepage is awesome
+- Web hosting:
+    - PHP Application:
+        icon: cloud.png
+        href: http://app.web.elemento.cloud
+        description: Hosted web application
+        widget: 
+            - logo:
+                icon: https://raw.githubusercontent.com/Elemento-Modular-Cloud/graphic-assets/main/logos/horizontal/Logo%20horizontal%20darkbg%20transp.svg
 
+- Database:
+    - Phpmyadmin:
+        icon: phpmyadmin.png
+        href: http://phpmyadmin.web.elemento.cloud
+        description: Access your data!
+
+- Mail:
+    - Mail client:
+        icon: docker-mailserver.png
+        href: http://localhost/
+        description: Mail box
+
+- Admin Tools:
+    - Portainer dashboard:
+        icon: cloud.png
+        href: https://web.elemento.cloud:9443
+        description: Overview of installe dservices
+        widget:
+            type: portainer
+            url: https://web.elemento.cloud:9443
+            env: 2
+            key: ptr_accesskeyaccesskeyaccesskeyaccesskey # TO DO
+
+    - Traefik dashboard:
+        icon: traefik.png
+        href: https://web.elemento.cloud:8080
+        description: Overview of installed services
+        widget:
+            type: traefik
+            url: https://web.elemento.cloud:8080
+            username: username # optional
+            password: password # optional
+
+    - Speedtest:
+        icon: speedtest-tracker.png
+        href: http://web.elemento.cloud
+        description: Test your internet speed
+        widget:
+            type: speedtest
+            url: https://web.elemento.cloud

@@ -7,5 +7,6 @@
         - abbr: WE
           href: https://www.elemento.cloud
     - Github:
-        - abbr: GH
+        - icon: github.png
+          abbr: GH
           href: https://github.com/Elemento-Modular-Cloud
