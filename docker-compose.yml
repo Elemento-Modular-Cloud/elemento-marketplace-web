@@ -2,8 +2,7 @@ version: "3.8"
 
 services:
   ftp-server:
-    image: stilliard/pure-ftpd # NOTE: zhabba/pure-ftpd-arm64 is a custom image for arm64, the original image is stilliard/pure-ftpd (amd64)
-    container_name: pure-ftpd
+    image: stilliard/pure-ftpd
     ports:
       - "21:21"
       - "30000-30009:30000-30009" # for passive mode
@@ -26,10 +25,6 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
-    container_name: phpmyadmin
-    restart: always
-    #ports:
-      #- "8081:80"
     environment:
       - PMA_ARBITRARY=1
       - MYSQL_ROOT_PASSWORD=your_secure_root_password
@@ -49,12 +44,9 @@ services:
           - node.role == manager
 
   app:
-    build: ./php_fpm
-    container_name: phpfpm_app
+    image: your_custom_php_image
     restart: always
     working_dir: /var/www/html/
-    #ports:
-      #- "9000:9000"
     volumes:
       - ../src:/var/www/html/
     networks:
@@ -67,8 +59,6 @@ services:
 
   mysql_db:
     image: mysql:8.0
-    container_name: mysql_db
-    restart: always
     command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: your_secure_root_password
@@ -94,48 +84,40 @@ services:
 
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
-    container_name: homepage
-    #ports:
-      #- "3000:3000"
+    volumes:
+      - ./homepage/config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - net
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.homepage.rule=Host(`homepage.web.elemento.cloud`)"
       - "traefik.http.services.homepage.loadbalancer.server.port=3000"
-    volumes:
-      - ./homepage/config:/app/config 
-      - /var/run/docker.sock:/var/run/docker.sock 
-    networks:
-      - net
 
   portainer:
-    container_name: portainer
     image: portainer/portainer-ce:latest
     ports:
       - "9443:9443"
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.portainer.rule=Host(`portainer.web.elemento.cloud`)"
     volumes:
       - data:/data
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
     networks:
       - net
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portainer.rule=Host(`portainer.web.elemento.cloud`)"
 
   crontab-ui:
-    container_name: crontab-ui
-    build: .
     image: alseambusher/crontab-ui
-    network_mode: bridge
-    #ports:
-      #- "8000:8000"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.crontab.rule=Host(`crontab.web.elemento.cloud`)"
       - "traefik.http.services.crontab.loadbalancer.server.port=8000"
+    networks:
+      - net
 
   traefik:
-    container_name: traefik
     image: traefik:v2.11
     command: --api.insecure=true --providers.docker
     ports:
@@ -151,7 +133,6 @@ services:
     restart: unless-stopped
 
   whoami:
-    container_name: whoami
     image: traefik/whoami
     labels:
       - "traefik.enable=true"
@@ -159,40 +140,9 @@ services:
     networks:
       - net
 
-  # swag:
-  #   container_name: swag
-  #   image: lscr.io/linuxserver/swag:latest
-  #   cap_add:
-  #     - NET_ADMIN
-  #   environment:
-  #     - PUID=1000
-  #     - PGID=1000
-  #     - TZ=Etc/UTC
-  #     - URL=yourdomain.url
-  #     - VALIDATION=http
-  #     - SUBDOMAINS=www,
-  #     - CERTPROVIDER=
-  #     - DNSPLUGIN=cloudflare
-  #     - PROPAGATION=
-  #     - EMAIL=
-  #     - ONLY_SUBDOMAINS=false
-  #     - EXTRA_DOMAINS=
-  #     - STAGING=false
-  #   volumes:
-  #     - config:/config
-  #   ports:
-  #     - "443:443"
-  #   restart: unless-stopped
-  #   networks:
-  #     - net
-
 volumes:
   mysql_data:
-    driver: local
   data:
-    driver: local
-  config:
-    driver: local
 
 networks:
   net:
