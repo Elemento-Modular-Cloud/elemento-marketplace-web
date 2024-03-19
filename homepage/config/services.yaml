@@ -5,7 +5,7 @@
 - Services:   
     - Web Application:
         icon: php.png
-        href: http://app.web.elemento.cloud
+        href: http://nginx.web.elemento.cloud
         description: Hosted web Application
         
     - Database:
@@ -21,28 +21,28 @@
 - Admin Tools:
     - Portainer dashboard:
         icon: portainer.png
-        href: https://web.elemento.cloud:9443
+        href: https://web1.elemento.cloud:9443
         description: Overview of installe dservices
         widget:
             type: portainer
-            url: https://web.elemento.cloud:9443
+            url: https://web1.elemento.cloud:9443
             env: 2
             key: ptr_accesskeyaccesskeyaccesskeyaccesskey # TO DO
 
     - Traefik dashboard:
         icon: traefik.png
-        href: https://web.elemento.cloud:8080
+        href: https://web1.elemento.cloud:8080
         description: Overview of installed services
         widget:
             type: traefik
-            url: https://web.elemento.cloud:8080
+            url: https://web1.elemento.cloud:8080
             username: username # optional
             password: password # optional
 
     - Speedtest:
         icon: speedtest-tracker.png
-        href: http://web.elemento.cloud
+        href: http://web1.elemento.cloud
         description: Test your internet speed
         widget:
             type: speedtest
-            url: https://web.elemento.cloud
+            url: https://web1.elemento.cloud
