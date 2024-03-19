@@ -81,6 +81,7 @@ services:
         - "traefik.enable=true"
         - "traefik.port=80"
         - "traefik.http.routers.nginx.rule=Host(`nginx.web.elemento.cloud`)"
+        - "traefik.http.services.nginx.loadbalancer.server.port=80"
         - "traefik.http.routers.nginx.entrypoints=web"
       mode: replicated
       replicas: 1
@@ -183,6 +184,7 @@ services:
         - "traefik.enable=true"
         - "traefik.http.routers.whoami.rule=Host(`whoami.web.elemento.cloud`)"
         - "traefik.http.routers.whoami.entrypoints=web"
+        - "traefik.http.services.whoami.loadbalancer.server.port=81"
 
       mode: replicated
       replicas: 1
