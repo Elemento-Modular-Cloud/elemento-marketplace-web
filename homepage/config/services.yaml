@@ -31,18 +31,10 @@
 
     - Traefik dashboard:
         icon: traefik.png
-        href: https://web1.elemento.cloud:8080
+        href: http://web1.elemento.cloud:8080
         description: Overview of installed services
         widget:
             type: traefik
-            url: https://web1.elemento.cloud:8080
+            url: http://web1.elemento.cloud:8080
             username: username # optional
             password: password # optional
-
-    - Speedtest:
-        icon: speedtest-tracker.png
-        href: http://web1.elemento.cloud
-        description: Test your internet speed
-        widget:
-            type: speedtest
-            url: https://web1.elemento.cloud
