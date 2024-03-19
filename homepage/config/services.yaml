@@ -26,7 +26,7 @@
         widget:
             type: portainer
             url: https://web1.elemento.cloud:9443
-            env: 2
+            env: 0
             key: ptr_accesskeyaccesskeyaccesskeyaccesskey # TO DO
 
     - Traefik dashboard:

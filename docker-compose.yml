@@ -51,7 +51,6 @@ services:
       placement:
         constraints:
           - node.role == manager
-          - node.labels.user == web1
 
 
   php:
@@ -87,7 +86,6 @@ services:
       replicas: 1
       placement:
         max_replicas_per_node: 1
-        constraints: [node.labels.user == web1]
     networks:
       - net
 
@@ -111,7 +109,6 @@ services:
       placement:
         constraints:
           - node.role == manager
-          - node.labels.user == web1
     networks:
       - net
 
@@ -130,7 +127,6 @@ services:
       replicas: 1
       placement:
         max_replicas_per_node: 1
-        constraints: [node.labels.user == web1]
     networks:
       - net     
 
@@ -160,7 +156,6 @@ services:
       replicas: 1
       placement:
         max_replicas_per_node: 1
-        constraints: [node.labels.user == web1]
     networks:
       - net
 
@@ -190,7 +185,6 @@ services:
       replicas: 1
       placement:
         max_replicas_per_node: 1
-        constraints: [node.labels.user == web1]
     networks:
       - net
 
