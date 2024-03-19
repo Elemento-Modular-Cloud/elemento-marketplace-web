@@ -170,7 +170,6 @@ services:
       - /home/admin/dev/elemento-marketplace-web/traefik/traefik.yml:/etc/traefik/traefik.yml
       - /var/run/docker.sock:/var/run/docker.sock
     deploy:
-      replicas: 1
       placement:
         constraints:
           - node.role == manager
