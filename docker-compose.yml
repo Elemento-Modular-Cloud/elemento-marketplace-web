@@ -45,6 +45,8 @@ services:
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin.web.elemento.cloud`)"
+        - "traefik.http.routers.phpmyadmin.entrypoints=web"
+        - "traefik.http.services.phpmyadmin.loadbalancer.server.port=3300"
       replicas: 1
       placement:
         constraints:
@@ -79,6 +81,7 @@ services:
         - "traefik.enable=true"
         - "traefik.port=80"
         - "traefik.http.routers.nginx.rule=Host(`nginx.web.elemento.cloud`)"
+        - "traefik.http.routers.nginx.entrypoints=web"
       mode: replicated
       replicas: 1
       placement:
@@ -120,6 +123,7 @@ services:
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.homepage.rule=Host(`homepage.web.elemento.cloud`)"
+        - "traefik.http.routers.homepage.entrypoints=web"
         - "traefik.http.services.homepage.loadbalancer.server.port=3000"
       mode: replicated
       replicas: 1
@@ -150,6 +154,7 @@ services:
         - "traefik.enable=true"
         - "traefik.http.routers.crontab.rule=Host(`crontab.web.elemento.cloud`)"
         - "traefik.http.services.crontab.loadbalancer.server.port=8000"
+        - "traefik.http.routers.crontab.entrypoints=web"
       mode: replicated
       replicas: 1
       placement:
@@ -177,6 +182,8 @@ services:
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.whoami.rule=Host(`whoami.web.elemento.cloud`)"
+        - "traefik.http.routers.whoami.entrypoints=web"
+
       mode: replicated
       replicas: 1
       placement:
