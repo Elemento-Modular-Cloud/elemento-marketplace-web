@@ -28,7 +28,6 @@ services:
       replicas: 1
       placement:
         max_replicas_per_node: 1
-        constraints: [node.labels.user == web1]
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
@@ -49,9 +48,9 @@ services:
         - "traefik.http.services.phpmyadmin.loadbalancer.server.port=3300"
       replicas: 1
       placement:
+        max_replicas_per_node: 1
         constraints:
           - node.role == manager
-
 
   php:
     image: php:fpm-alpine
@@ -64,7 +63,6 @@ services:
       replicas: 1
       placement:
         max_replicas_per_node: 1
-        constraints: [node.labels.user == web1]
     networks:
       - net
 
@@ -86,6 +84,8 @@ services:
       replicas: 1
       placement:
         max_replicas_per_node: 1
+        constraints:
+          - node.role == manager
     networks:
       - net
 
@@ -156,6 +156,8 @@ services:
       replicas: 1
       placement:
         max_replicas_per_node: 1
+        constraints:
+          - node.role == manager
     networks:
       - net
 
@@ -183,7 +185,6 @@ services:
         - "traefik.enable=true"
         - "traefik.http.routers.whoami.rule=Host(`whoami.web.elemento.cloud`)"
         - "traefik.http.routers.whoami.entrypoints=web"
-        - "traefik.http.services.whoami.loadbalancer.server.port=81"
       mode: replicated
       replicas: 1
       placement:
