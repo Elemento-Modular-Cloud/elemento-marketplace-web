@@ -35,7 +35,7 @@ services:
       - PMA_ARBITRARY=1
       - MYSQL_ROOT_PASSWORD=your_secure_root_password
       - PMA_HOST=mysql_db
-      - PMA_PORT=3300
+      - PMA_PORT=3306
     networks:
       - net
     depends_on:
@@ -90,7 +90,7 @@ services:
 
   mysql_db:
     image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password
+    command: --default-authentication-plugin=caching_sha2_password
     environment:
       MYSQL_ROOT_PASSWORD: your_secure_root_password
       MYSQL_DATABASE: your_database_name
@@ -104,6 +104,8 @@ services:
       timeout: 5s
       retries: 3
     deploy:
+      labels:
+        - "traefik.enable=false"
       replicas: 1
       placement:
         constraints:
