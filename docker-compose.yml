@@ -36,6 +36,7 @@ services:
       - MYSQL_ROOT_PASSWORD=your_secure_root_password
       - PMA_HOST=mysql_db
       - PMA_PORT=3306
+      - APACHE_PORT=8090
     networks:
       - net
     depends_on:
@@ -45,7 +46,7 @@ services:
         - "traefik.enable=true"
         - "traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin.web.elemento.cloud`)"
         - "traefik.http.routers.phpmyadmin.entrypoints=web"
-        - "traefik.http.services.phpmyadmin.loadbalancer.server.port=3300"
+        - "traefik.http.services.phpmyadmin.loadbalancer.server.port=8090"
       replicas: 1
       placement:
         max_replicas_per_node: 1
