@@ -16,10 +16,10 @@ services:
       - "587:587"  # ESMTP (explicit TLS => STARTTLS)
       - "993:993"  # IMAP4 (implicit TLS)
     volumes:
-      - /home/admin/dev/elemento-marketplace-web/docker-data/dms/mail-data/:/var/mail/
-      - ./docker-data/dms/mail-state/:/var/mail-state/
-      - ./docker-data/dms/mail-logs/:/var/log/mail/
-      - ./docker-data/dms/config/:/tmp/docker-mailserver/
+      - "/home/admin/dev/elemento-marketplace-web/mail/dms/mail-data/:/var/mail/"
+      - "/home/admin/dev/elemento-marketplace-web/mail/dms/mail-state/:/var/mail-state/"
+      - "/home/admin/dev/elemento-marketplace-web/mail/dms/mail-logs/:/var/log/mail/"
+      - "/home/admin/dev/elemento-marketplace-web/mail/dms/config/:/tmp/docker-mailserver/"
       - /etc/localtime:/etc/localtime:ro
     restart: always
     stop_grace_period: 1m
