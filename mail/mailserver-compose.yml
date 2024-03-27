@@ -32,7 +32,7 @@ services:
       - "37.27.99.151:995:995"
       - "37.27.99.151:143:143"
       - "37.27.99.151:993:993"
-    labels:
+    # labels:
       # Enable TLS
       # - "traefik.http.routers.mailu-secure.tls"
       # Your main domain
