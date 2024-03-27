@@ -23,8 +23,8 @@ services:
       options:
         tag: mailu-front
     ports:
-      - "37.27.99.151:80:80"
-      - "37.27.99.151:443:443"
+    #   - "37.27.99.151:80:80"
+    #   - "37.27.99.151:443:443"
       - "37.27.99.151:25:25"
       - "37.27.99.151:465:465"
       - "37.27.99.151:587:587"
@@ -32,18 +32,18 @@ services:
       - "37.27.99.151:995:995"
       - "37.27.99.151:143:143"
       - "37.27.99.151:993:993"
-    # labels:
+    labels:
       # Enable TLS
-      # - "traefik.http.routers.mailu-secure.tls"
+      - "traefik.http.routers.mailu-secure.tls"
       # Your main domain
-      # - "traefik.http.routers.mailu-secure.tls.domains[0].main=your.example.com"
+      - "traefik.http.routers.mailu-secure.tls.domains[0].main=your.example.com"
       # Optional SANs for your main domain
       #- "traefik.http.routers.mailu-secure.tls.domains[0].sans=mail.your.example.com,webmail.your.example.com,smtp.your.example.com"
       # Optionally add other domains
       #- "traefik.http.routers.mailu-secure.tls.domains[1].main=mail.other.example.com"
       #- "traefik.http.routers.mailu-secure.tls.domains[1].sans=mail2.other.example.com,mail3.other.example.com"
       # Your ACME certificate resolver
-      # - "traefik.http.routers.mailu-secure.tls.certResolver=foo"
+      - "traefik.http.routers.mailu-secure.tls.certResolver=foo"
     networks:
       - default
       - webmail
