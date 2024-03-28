@@ -45,7 +45,7 @@ services:
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin.web.elemento.cloud`)"
-        - "traefik.http.routers.phpmyadmin.entrypoints=web"
+        - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
         - "traefik.http.services.phpmyadmin.loadbalancer.server.port=8090"
         - traefik.http.routers.phpmyadmin.tls=true
         - traefik.http.routers.phpmyadmin.tls.certresolver=leresolver
