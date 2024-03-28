@@ -163,7 +163,6 @@ services:
   
   mailserver:
     image: ghcr.io/docker-mailserver/docker-mailserver:latest
-    container_name: mailserver
     # Provide the FQDN of your mail server here (Your DNS MX record should point to this value)
     hostname: mail.web.elemento.cloud
     environment:
@@ -186,6 +185,7 @@ services:
       retries: 0
     labels:
       - "traefik.enable=true"
+      - "traefik.http.routers.mailserver.rule=Host(`mail.web.elemento.cloud`)"
       - "traefik.tcp.routers.smtp.rule=HostSNI(`*`)"
       - "traefik.tcp.routers.smtp.entrypoints=smtp"
       - "traefik.tcp.routers.smtp.service=smtp"
