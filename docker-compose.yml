@@ -7,8 +7,8 @@ services:
       - "21:21"
       - "30000-30009:30000-30009" # for passive mode
     volumes:
-      - "/home/admin/dev/elemento-marketplace-web/ftp/data:/home/admin/"
-      - "/home/admin/dev/elemento-marketplace-web/ftp/passwd:/etc/pure-ftpd/passwd"
+      - /home/admin/dev/elemento-marketplace-web/ftp/data:/home/admin/
+      - /home/admin/dev/elemento-marketplace-web/ftp/passwd:/etc/pure-ftpd/passwd
     # uncomment for ssl/tls, see https://github.com/stilliard/docker-pure-ftpd#tls
     #      - "/folder_on_disk/ssl:/etc/ssl/private/"
     # or ssl/tls with Let's Encrypt (cert and key as two files)
@@ -47,9 +47,9 @@ services:
         - "traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin.web.elemento.cloud`)"
         - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
         - "traefik.http.services.phpmyadmin.loadbalancer.server.port=8090"
-        - traefik.http.routers.phpmyadmin.tls=true
-        - traefik.http.routers.phpmyadmin.tls.certresolver=leresolver
-        - traefik.http.routers.phpmyadmin.tls.domains[0].main=phpmyadmin.web.elemento.cloud
+        - "traefik.http.routers.phpmyadmin.tls=true"
+        - "traefik.http.routers.phpmyadmin.tls.certresolver=leresolver"
+        - "traefik.http.routers.phpmyadmin.tls.domains[0].main=phpmyadmin.web.elemento.cloud"
       replicas: 1
       placement:
         max_replicas_per_node: 1
@@ -83,9 +83,9 @@ services:
         - "traefik.http.routers.nginx.rule=Host(`nginx.web.elemento.cloud`)"
         - "traefik.http.services.nginx.loadbalancer.server.port=80"
         - "traefik.http.routers.nginx.entrypoints=websecure"
-        - traefik.http.routers.nginx.tls=true
-        - traefik.http.routers.nginx.tls.certresolver=leresolver
-        - traefik.http.routers.nginx.tls.domains[0].main=nginx.web.elemento.cloud
+        - "traefik.http.routers.nginx.tls=true"
+        - "traefik.http.routers.nginx.tls.certresolver=leresolver"
+        - "traefik.http.routers.nginx.tls.domains[0].main=nginx.web.elemento.cloud"
       mode: replicated
       replicas: 1
       placement:
@@ -131,9 +131,9 @@ services:
         - "traefik.http.routers.homepage.rule=Host(`homepage.web.elemento.cloud`)"
         - "traefik.http.services.homepage.loadbalancer.server.port=3000"
         - "traefik.http.routers.homepage.entrypoints=websecure"
-        - traefik.http.routers.homepage.tls=true
-        - traefik.http.routers.homepage.tls.certresolver=leresolver
-        - traefik.http.routers.homepage.tls.domains[0].main=homepage.web.elemento.cloud
+        - "traefik.http.routers.homepage.tls=true"
+        - "traefik.http.routers.homepage.tls.certresolver=leresolver"
+        - "traefik.http.routers.homepage.tls.domains[0].main=homepage.web.elemento.cloud"
       mode: replicated
       replicas: 1
       placement:
@@ -149,9 +149,9 @@ services:
         - "traefik.http.routers.crontab.rule=Host(`crontab.web.elemento.cloud`)"
         - "traefik.http.services.crontab.loadbalancer.server.port=8000"
         - "traefik.http.routers.crontab.entrypoints=websecure"
-        - traefik.http.routers.crontab.tls=true
-        - traefik.http.routers.crontab.tls.certresolver=leresolver
-        - traefik.http.routers.crontab.tls.domains[0].main=crontab.web.elemento.cloud
+        - "traefik.http.routers.crontab.tls=true"
+        - "traefik.http.routers.crontab.tls.certresolver=leresolver"
+        - "traefik.http.routers.crontab.tls.domains[0].main=crontab.web.elemento.cloud"
       mode: replicated
       replicas: 1
       placement:
@@ -160,16 +160,73 @@ services:
           - node.role == manager
     networks:
       - net
+  
+  mailserver:
+    image: ghcr.io/docker-mailserver/docker-mailserver:latest
+    container_name: mailserver
+    # Provide the FQDN of your mail server here (Your DNS MX record should point to this value)
+    hostname: mail.web.elemento.cloud
+    environment:
+      SSL_TYPE: letsencrypt
+      SSL_DOMAIN: mail.web.elemento.cloud
+    volumes:
+      - "/home/admin/dev/elemento-marketplace-web/mailserver/dms/mail-data/:/var/mail/"
+      - "/home/admin/dev/elemento-marketplace-web/mailserver/dms/mail-state/:/var/mail-state/"
+      - "/home/admin/dev/elemento-marketplace-web/mailserver/dms/mail-logs/:/var/log/mail/"
+      - "/home/admin/dev/elemento-marketplace-web/mailserver/dms/config/:/tmp/docker-mailserver/"
+      - "/home/admin/dev/elemento-marketplace-web/traefik/acme.json:/etc/letsencrypt/acme.json:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - net
+    restart: always
+    stop_grace_period: 1m
+    healthcheck:
+      test: "ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1"
+      timeout: 3s
+      retries: 0
+    labels:
+      - "traefik.enable=true"
+      - "traefik.tcp.routers.smtp.rule=HostSNI(`*`)"
+      - "traefik.tcp.routers.smtp.entrypoints=smtp"
+      - "traefik.tcp.routers.smtp.service=smtp"
+      - "traefik.tcp.services.smtp.loadbalancer.server.port=25"
+      - "traefik.tcp.services.smtp.loadbalancer.proxyProtocol.version=1"
+      - "traefik.tcp.routers.smtp-ssl.rule=HostSNI(`*`)"
+      - "traefik.tcp.routers.smtp-ssl.entrypoints=smtp-ssl"
+      - "traefik.tcp.routers.smtp-ssl.tls.passthrough=true"
+      - "traefik.tcp.routers.smtp-ssl.service=smtp-ssl"
+      - "traefik.tcp.services.smtp-ssl.loadbalancer.server.port=465"
+      - "traefik.tcp.services.smtp-ssl.loadbalancer.proxyProtocol.version=1"
+      - "traefik.tcp.routers.imap-ssl.rule=HostSNI(`*`)"
+      - "traefik.tcp.routers.imap-ssl.entrypoints=imap-ssl"
+      - "traefik.tcp.routers.imap-ssl.service=imap-ssl"
+      - "traefik.tcp.routers.imap-ssl.tls.passthrough=true"
+      - "traefik.tcp.services.imap-ssl.loadbalancer.server.port=10993"
+      - "traefik.tcp.services.imap-ssl.loadbalancer.proxyProtocol.version=2"
+      - "traefik.tcp.routers.sieve.rule=HostSNI(`*`)"
+      - "traefik.tcp.routers.sieve.entrypoints=sieve"
+      - "traefik.tcp.routers.sieve.service=sieve"
+      - "traefik.tcp.services.sieve.loadbalancer.server.port=4190"
 
   traefik:
     image: traefik:v2.11
-    command: --api.insecure=true --providers.docker
+    command:
+      - "--entryPoints.smtp.address=:25"
+      - "--entryPoints.smtp-ssl.address=:465"
+      - "--entryPoints.imap-ssl.address=:993"
+      - "--entryPoints.sieve.address=:4190"
     ports:
       - "80:80"
       - "443:443"
       - "8080:8080"
+      # mailserver
+      - "25:25"
+      - "465:465"
+      - "993:993"
+      - "4190:4190"
     volumes:
       - /home/admin/dev/elemento-marketplace-web/traefik/traefik.yml:/etc/traefik/traefik.yml
+      - /home/admin/dev/elemento-marketplace-web/traefik/acme.json:/acme.json
       - /var/run/docker.sock:/var/run/docker.sock
     deploy:
       placement:
