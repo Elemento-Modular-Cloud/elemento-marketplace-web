@@ -1,16 +1,17 @@
 # traefik.yml
 
 api:
+  dashboard: true
   insecure: true
 
 entryPoints:
   web:
     address: ":80"
-    #http:
-      #redirections:
-        #entryPoint:
-          #to: websecure
-          #scheme: https
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
 
   websecure:
     address: ":443"
@@ -35,7 +36,7 @@ certificatesResolvers:
       #
       # Required
       #
-      email: "guti.random00@gmail.com"
+      email: "ngutierrez@elemento.cloud"
 
       # File or key used for certificates storage.
       #
@@ -83,32 +84,33 @@ certificatesResolvers:
       #
       # Optional (but recommended)
       #
-      tlsChallenge: {}
+      #tlsChallenge: {}
 
       # Use a HTTP-01 ACME challenge.
       #
       # Optional
       #
-      httpChallenge:
+      #httpChallenge:
 
         # EntryPoint to use for the HTTP-01 challenges.
         #
         # Required
         #
-        entryPoint: web
+        #entryPoint: web
 
       # Use a DNS-01 ACME challenge rather than HTTP-01 challenge.
       # Note: mandatory for wildcard certificate generation.
       #
       # Optional
       #
-      # dnsChallenge:
+      dnsChallenge:
 
         # DNS provider used.
         #
         # Required
         #
         # provider: digitalocean
+        provider: cloudflare
 
         # By default, the provider will verify the TXT DNS challenge record before letting ACME verify.
         # If delayBeforeCheck is greater than zero, this check is delayed for the configured duration in seconds.
@@ -124,9 +126,9 @@ certificatesResolvers:
         # Optional
         # Default: empty
         #
-        # resolvers
-        # - "1.1.1.1:53"
-        # - "8.8.8.8:53"
+        resolvers:
+         - "1.1.1.1:53"
+         - "8.8.8.8:53"
 
         # Disable the DNS propagation checks before notifying ACME that the DNS challenge is ready.
         #
