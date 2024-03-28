@@ -51,7 +51,8 @@ certificatesResolvers:
       # Optional
       # Default: "https://acme-v02.api.letsencrypt.org/directory"
       #
-      caServer: "https://acme-staging-v02.api.letsencrypt.org/directory"
+      # caServer: "https://acme-staging-v02.api.letsencrypt.org/directory"
+      caServer: "https://acme-staging-v02.api.letsencrypt.org/directory" # TODO: change in prod
 
       # The certificates' duration in hours.
       # It defaults to 2160 (90 days) to follow Let's Encrypt certificates' duration.
@@ -84,7 +85,7 @@ certificatesResolvers:
       #
       # Optional (but recommended)
       #
-      tlsChallenge: {}
+      #tlsChallenge: {}
 
       # Use a HTTP-01 ACME challenge.
       #
@@ -103,14 +104,14 @@ certificatesResolvers:
       #
       # Optional
       #
-      #dnsChallenge:
+      dnsChallenge:
 
         # DNS provider used.
         #
         # Required
         #
         # provider: digitalocean
-        #provider: cloudflare
+        provider: cloudflare
 
         # By default, the provider will verify the TXT DNS challenge record before letting ACME verify.
         # If delayBeforeCheck is greater than zero, this check is delayed for the configured duration in seconds.
@@ -126,9 +127,9 @@ certificatesResolvers:
         # Optional
         # Default: empty
         #
-        #resolvers:
-         #- "1.1.1.1:53"
-         #- "8.8.8.8:53"
+        resolvers:
+         - "185.12.64.1:53"
+         - "185.12.64.2:53"
 
         # Disable the DNS propagation checks before notifying ACME that the DNS challenge is ready.
         #
