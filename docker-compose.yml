@@ -35,7 +35,7 @@ services:
       - PMA_ARBITRARY=1
       - MYSQL_ROOT_PASSWORD=your_secure_root_password
       - PMA_HOST=mysql_db
-      - PMA_PORT=3306
+      - PMA_PORT=3307
       - APACHE_PORT=8090
     networks:
       - net
@@ -101,6 +101,7 @@ services:
       MYSQL_DATABASE: your_database_name
       MYSQL_USER: your_database_user
       MYSQL_PASSWORD: your_database_password
+      MYSQL_PORT: 3307
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
@@ -156,71 +157,200 @@ services:
           - node.role == manager
     networks:
       - net
-  
-  mailserver:
-    image: ghcr.io/docker-mailserver/docker-mailserver:latest
-    # Provide the FQDN of your mail server here (Your DNS MX record should point to this value)
-    hostname: mail.web.elemento.cloud
-    environment:
-      #SSL_TYPE: letsencrypt
-      #SSL_DOMAIN: mail.web.elemento.cloud
-      POSTMASTER_ADDRESS: postmaster@mail.web.elemento.cloud
+
+  ############### MAIL SERVER ###############
+
+  # Creates self signed tls certificates. Remove if you
+  # use your own.
+  ssl:
+    image: jeboehm/mailserver-ssl:latest
+    #env_file: "/home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env"
     volumes:
-      - "/home/admin/dev/elemento-marketplace-web/mailserver/dms/mail-data/:/var/mail/"
-      - "/home/admin/dev/elemento-marketplace-web/mailserver/dms/mail-state/:/var/mail-state/"
-      - "/home/admin/dev/elemento-marketplace-web/mailserver/dms/mail-logs/:/var/log/mail/"
-      - "/home/admin/dev/elemento-marketplace-web/mailserver/dms/config/:/tmp/docker-mailserver/"
-      - "/etc/localtime:/etc/localtime:ro"
+      - /home/admin/dev/elemento-marketplace-web/mailserver/data-tls:/media/tls:rw
     networks:
       - net
-    restart: always
-    stop_grace_period: 1m
-    healthcheck:
-      test: "ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1"
-      timeout: 3s
-      retries: 0
-    labels:
-      - "traefik.enable=true"
-      - "traefik.tcp.routers.smtp.rule=HostSNI(`*`)"
-      - "traefik.tcp.routers.smtp.entrypoints=smtp"
-      - "traefik.tcp.routers.smtp.service=smtp"
-      - "traefik.tcp.services.smtp.loadbalancer.server.port=25"
-      - "traefik.tcp.services.smtp.loadbalancer.proxyProtocol.version=1"
-      #- "traefik.tcp.routers.smtp-ssl.rule=HostSNI(`*`)"
-      #- "traefik.tcp.routers.smtp-ssl.entrypoints=smtp-ssl"
-      #- "traefik.tcp.routers.smtp-ssl.tls.passthrough=true"
-      #- "traefik.tcp.routers.smtp-ssl.service=smtp-ssl"
-      #- "traefik.tcp.services.smtp-ssl.loadbalancer.server.port=465"
-      # - "traefik.tcp.services.smtp-ssl.loadbalancer.proxyProtocol.version=1"
-      # - "traefik.tcp.routers.imap-ssl.rule=HostSNI(`*`)"
-      # - "traefik.tcp.routers.imap-ssl.entrypoints=imap-ssl"
-      # - "traefik.tcp.routers.imap-ssl.service=imap-ssl"
-      # - "traefik.tcp.routers.imap-ssl.tls.passthrough=true"
-      # - "traefik.tcp.services.imap-ssl.loadbalancer.server.port=10993"
-      # - "traefik.tcp.services.imap-ssl.loadbalancer.proxyProtocol.version=2"
-      - "traefik.tcp.routers.sieve.rule=HostSNI(`*`)"
-      - "traefik.tcp.routers.sieve.entrypoints=sieve"
-      - "traefik.tcp.routers.sieve.service=sieve"
-      - "traefik.tcp.services.sieve.loadbalancer.server.port=4190"
+    deploy:
+      labels:
+        - "traefik.enable=false"
+      replicas: 1
+      placement:
+        max_replicas_per_node: 1
+        constraints:
+          - node.role == manager
+
+  # Responsible for storing users and their aliases. Remove
+  # if you already have a MySQL server.
+  db:
+    image: jeboehm/mailserver-db:latest
+    #env_file: "/home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env"
+    volumes:
+      - /home/admin/dev/elemento-marketplace-web/mailserver/data-db:/var/lib/mysql
+    networks:
+      - net
+    deploy:
+        labels:
+          - "traefik.enable=false"
+        replicas: 1
+        placement:
+          constraints:
+            - node.role == manager
+
+  # The Mail Transfer Agent (Postfix) receives incoming mail
+  # on TCP port 25.
+  mta:
+    image: jeboehm/mailserver-mta:latest
+    #env_file: "/home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env"
+    ports:
+      - "25:25"
+      - "587:587"
+    # Uncomment to use SSL encrypted mail submission
+    #  - "0.0.0.0:465:465"
+    volumes:
+      - /home/admin/dev/elemento-marketplace-web/mailserver/data-tls:/media/tls:ro
+      # For using external certificates uncomment the following lines
+      # and change the path on the left side of the colon.
+      # - /home/user/certs/mail.example.com.crt:/media/tls/mailserver.crt:ro
+      # - /home/user/certs/mail.example.com.key:/media/tls/mailserver.key:ro
+    networks:
+      - net
+    deploy:
+      labels:
+        - "traefik.enable=false"
+      replicas: 1
+      placement:
+        max_replicas_per_node: 1
+        constraints:
+          - node.role == manager
+
+  # The Mail Delivery Agent (Dovecot) is responsible for storing
+  # incoming mail into a users mailbox and also delivers them
+  # via POP3 or IMAP4.
+  mda:
+    image: jeboehm/mailserver-mda:latest
+    #env_file: "/home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env"
+    ports:
+      - "143:143"
+      - "993:993"
+      - "110:110"
+      - "995:995"
+    volumes:
+      - /home/admin/dev/elemento-marketplace-web/mailserver/data-mail:/var/vmail
+      - /home/admin/dev/elemento-marketplace-web/mailserver/data-tls:/media/tls:ro
+      # For using external certificates uncomment the following lines
+      # and change the path on the left side of the colon.
+      # - /home/user/certs/mail.example.com.crt:/media/tls/mailserver.crt:ro
+      # - /home/user/certs/mail.example.com.key:/media/tls/mailserver.key:ro
+    networks:
+      - net
+    deploy:
+      labels:
+        - "traefik.enable=false"
+      replicas: 1
+      placement:
+        max_replicas_per_node: 1
+        constraints:
+          - node.role == manager
+
+  # The admin (mailserver-admin) and webmail (roundcube) interfaces
+  # live here. Can be removed if not needed.
+  web:
+    image: jeboehm/mailserver-web:latest
+    #env_file: "/home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env"
+    volumes:
+      - /home/admin/dev/elemento-marketplace-web/mailserver/data-dkim:/media/dkim
+    # For use with jwilder/nginx-proxy.
+    # environment:
+    #   - VIRTUAL_HOST=mail.example.com
+    networks:
+      - net
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.rspamd.rule=Host(`mailrspamd.web.elemento.cloud`)"
+        - "traefik.http.routers.rspamd.entrypoints=websecure"
+        - "traefik.http.routers.rspamd.middlewares=rspamd-stripprefix"
+        - "traefik.http.middlewares.rspamd-stripprefix.stripprefix.prefixes=/rspamd"
+
+        - "traefik.http.routers.manager.rule=Host(`mailmanager.web.elemento.cloud`)"
+        - "traefik.http.routers.manager.entrypoints=websecure"
+        - "traefik.http.routers.manager.middlewares=manager-stripprefix"
+        - "traefik.http.middlewares.manager-stripprefix.stripprefix.prefixes=/manager"
+
+        - "traefik.http.routers.webmail.rule=Host(`mail.web.elemento.cloud`)"
+        - "traefik.http.routers.webmail.entrypoints=websecure"
+        - "traefik.http.services.webmail.loadbalancer.server.port=81"
+        - "traefik.http.routers.webmail.middlewares=webmail-stripprefix"
+        - "traefik.http.middlewares.webmail-stripprefix.stripprefix.prefixes=/webmail"
+      replicas: 1
+      placement:
+        max_replicas_per_node: 1
+        constraints:
+          - node.role == manager
+
+  # Incoming spam is (hopefully) filtered by rspamd which runs
+  # in this service.
+  filter:
+    image: jeboehm/mailserver-filter:latest
+    #env_file: /home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env
+    volumes:
+      - /home/admin/dev/elemento-marketplace-web/mailserver/data-filter:/var/lib/rspamd
+      - /home/admin/dev/elemento-marketplace-web/mailserver/ata-dkim:/media/dkim
+    networks:
+      - net
+    deploy:
+      labels:
+        - "traefik.enable=false"
+      replicas: 1
+      placement:
+        max_replicas_per_node: 1
+        constraints:
+          - node.role == manager
+
+  # Incoming viruses or malware is detected and rejected by
+  # this service. Can be removed if FILTER_VIRUS is set to false.
+  virus:
+    image: jeboehm/mailserver-virus:latest
+    #env_file: /home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env
+    volumes:
+      - /home/admin/dev/elemento-marketplace-web/mailserver/data-virusdb:/var/lib/clamav
+    networks:
+      - net
+    deploy:
+      labels:
+        - "traefik.enable=false"
+      replicas: 1
+      placement:
+        max_replicas_per_node: 1
+        constraints:
+          - node.role == manager
+
+  redis:
+    image: redis:7.2-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - /home/admin/dev/elemento-marketplace-web/mailserver/data-redis:/data
+    networks:
+      - net
+    deploy:
+      labels:
+        - "traefik.enable=false"
+      replicas: 1
+      placement:
+        max_replicas_per_node: 1
+        constraints:
+          - node.role == manager
+      
+  ###########################################
 
   traefik:
     image: traefik:v2.11
-    command:
-      - "--entryPoints.smtp.address=:25"
-      #- "--entryPoints.smtp-ssl.address=:465"
-      #- "--entryPoints.imap-ssl.address=:993"
-      - "--entryPoints.sieve.address=:4190"
     environment:
       - GOOGLE_DOMAINS_ACCESS_TOKEN=YThLZFZsOGplRWdrZG15S04tc3hPZw==
     ports:
       - "80:80"
+      - "81:81"
       - "443:443"
       - "8080:8080"
-      # mailserver
-      - "25:25"
-      #- "465:465"
-      #- "993:993"
-      - "4190:4190"
     volumes:
       - "/home/admin/dev/elemento-marketplace-web/traefik/traefik.yml:/etc/traefik/traefik.yml"
       - "/home/admin/dev/elemento-marketplace-web/traefik/acme.json:/acme.json"
