@@ -160,185 +160,172 @@ services:
 
   ############### MAIL SERVER ###############
 
-  # Creates self signed tls certificates. Remove if you
-  # use your own.
-  ssl:
-    image: jeboehm/mailserver-ssl:latest
-    #env_file: "/home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env"
-    volumes:
-      - /home/admin/dev/elemento-marketplace-web/mailserver/data-tls:/media/tls:rw
-    networks:
-      - net
-    deploy:
-      labels:
-        - "traefik.enable=false"
-      replicas: 1
-      placement:
-        max_replicas_per_node: 1
-        constraints:
-          - node.role == manager
+  # # Creates self signed tls certificates. Remove if you
+  # # use your own.
+  # ssl:
+  #   image: jeboehm/mailserver-ssl:latest
+  #   #env_file: "/home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env"
+  #   volumes:
+  #     - data-tls:/media/tls:rw
+  #   networks:
+  #     - net
+  #   deploy:
+  #     labels:
+  #       - "traefik.enable=false"
+  #     replicas: 1
+  #     placement:
+  #       max_replicas_per_node: 1
+  #       constraints:
+  #         - node.role == manager
 
-  # Responsible for storing users and their aliases. Remove
-  # if you already have a MySQL server.
-  db:
-    image: jeboehm/mailserver-db:latest
-    #env_file: "/home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env"
-    volumes:
-      - /home/admin/dev/elemento-marketplace-web/mailserver/data-db:/var/lib/mysql
-    networks:
-      - net
-    deploy:
-        labels:
-          - "traefik.enable=false"
-        replicas: 1
-        placement:
-          constraints:
-            - node.role == manager
+  # # Responsible for storing users and their aliases. Remove
+  # # if you already have a MySQL server.
+  # db:
+  #   image: jeboehm/mailserver-db:latest
+  #   #env_file: "/home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env"
+  #   volumes:
+  #     - data-db:/var/lib/mysql
+  #   networks:
+  #     - net
+  #   deploy:
+  #     labels:
+  #       - "traefik.enable=false"
+  #     replicas: 1
+  #     placement:
+  #       constraints:
+  #         - node.role == manager
 
-  # The Mail Transfer Agent (Postfix) receives incoming mail
-  # on TCP port 25.
-  mta:
-    image: jeboehm/mailserver-mta:latest
-    #env_file: "/home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env"
-    ports:
-      - "25:25"
-      - "587:587"
-    # Uncomment to use SSL encrypted mail submission
-    #  - "0.0.0.0:465:465"
-    volumes:
-      - /home/admin/dev/elemento-marketplace-web/mailserver/data-tls:/media/tls:ro
-      # For using external certificates uncomment the following lines
-      # and change the path on the left side of the colon.
-      # - /home/user/certs/mail.example.com.crt:/media/tls/mailserver.crt:ro
-      # - /home/user/certs/mail.example.com.key:/media/tls/mailserver.key:ro
-    networks:
-      - net
-    deploy:
-      labels:
-        - "traefik.enable=false"
-      replicas: 1
-      placement:
-        max_replicas_per_node: 1
-        constraints:
-          - node.role == manager
+  # # The Mail Transfer Agent (Postfix) receives incoming mail
+  # # on TCP port 25.
+  # mta:
+  #   image: jeboehm/mailserver-mta:latest
+  #   #env_file: "/home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env"
+  #   ports:
+  #     - "25:25"
+  #     - "587:587"
+  #   # Uncomment to use SSL encrypted mail submission
+  #   #  - "0.0.0.0:465:465"
+  #   volumes:
+  #     - data-tls:/media/tls:ro
+  #     # For using external certificates uncomment the following lines
+  #     # and change the path on the left side of the colon.
+  #     # - /home/user/certs/mail.example.com.crt:/media/tls/mailserver.crt:ro
+  #     # - /home/user/certs/mail.example.com.key:/media/tls/mailserver.key:ro
+  #   networks:
+  #     - net
+  #   deploy:
+  #     labels:
+  #       - "traefik.enable=false"
+  #     replicas: 1
+  #     placement:
+  #       max_replicas_per_node: 1
+  #       constraints:
+  #         - node.role == manager
 
-  # The Mail Delivery Agent (Dovecot) is responsible for storing
-  # incoming mail into a users mailbox and also delivers them
-  # via POP3 or IMAP4.
-  mda:
-    image: jeboehm/mailserver-mda:latest
-    #env_file: "/home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env"
-    ports:
-      - "143:143"
-      - "993:993"
-      - "110:110"
-      - "995:995"
-    volumes:
-      - /home/admin/dev/elemento-marketplace-web/mailserver/data-mail:/var/vmail
-      - /home/admin/dev/elemento-marketplace-web/mailserver/data-tls:/media/tls:ro
-      # For using external certificates uncomment the following lines
-      # and change the path on the left side of the colon.
-      # - /home/user/certs/mail.example.com.crt:/media/tls/mailserver.crt:ro
-      # - /home/user/certs/mail.example.com.key:/media/tls/mailserver.key:ro
-    networks:
-      - net
-    deploy:
-      labels:
-        - "traefik.enable=false"
-      replicas: 1
-      placement:
-        max_replicas_per_node: 1
-        constraints:
-          - node.role == manager
+  # # The Mail Delivery Agent (Dovecot) is responsible for storing
+  # # incoming mail into a users mailbox and also delivers them
+  # # via POP3 or IMAP4.
+  # mda:
+  #   image: jeboehm/mailserver-mda:latest
+  #   #env_file: "/home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env"
+  #   ports:
+  #     - "143:143"
+  #     - "993:993"
+  #     - "110:110"
+  #     - "995:995"
+  #   volumes:
+  #     - data-mail:/var/vmail
+  #     - data-tls:/media/tls:ro
+  #     # For using external certificates uncomment the following lines
+  #     # and change the path on the left side of the colon.
+  #     # - /home/user/certs/mail.example.com.crt:/media/tls/mailserver.crt:ro
+  #     # - /home/user/certs/mail.example.com.key:/media/tls/mailserver.key:ro
+  #   networks:
+  #     - net
+  #   deploy:
+  #     labels:
+  #       - "traefik.enable=false"
+  #     replicas: 1
+  #     placement:
+  #       max_replicas_per_node: 1
+  #       constraints:
+  #         - node.role == manager
 
-  # The admin (mailserver-admin) and webmail (roundcube) interfaces
-  # live here. Can be removed if not needed.
-  web:
-    image: jeboehm/mailserver-web:latest
-    #env_file: "/home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env"
-    volumes:
-      - /home/admin/dev/elemento-marketplace-web/mailserver/data-dkim:/media/dkim
-    # For use with jwilder/nginx-proxy.
-    # environment:
-    #   - VIRTUAL_HOST=mail.example.com
-    networks:
-      - net
-    deploy:
-      labels:
-        - "traefik.enable=true"
-        - "traefik.http.routers.rspamd.rule=Host(`mailrspamd.web.elemento.cloud`)"
-        - "traefik.http.routers.rspamd.entrypoints=websecure"
-        - "traefik.http.routers.rspamd.middlewares=rspamd-stripprefix"
-        - "traefik.http.middlewares.rspamd-stripprefix.stripprefix.prefixes=/rspamd"
+  # # The admin (mailserver-admin) and webmail (roundcube) interfaces
+  # # live here. Can be removed if not needed.
+  # web:
+  #   image: jeboehm/mailserver-web:latest
+  #   #env_file: "/home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env"
+  #   volumes:
+  #     - data-dkim:/media/dkim
+  #   # For use with jwilder/nginx-proxy.
+  #   # environment:
+  #   #   - VIRTUAL_HOST=mail.example.com
+  #   networks:
+  #     - net
+  #   ports:
+  #     - "81:80"
+  #   deploy:
+  #     labels:
+  #       - "traefik.enable=false"
+  #     replicas: 1
+  #     placement:
+  #       max_replicas_per_node: 1
+  #       constraints:
+  #         - node.role == manager
 
-        - "traefik.http.routers.manager.rule=Host(`mailmanager.web.elemento.cloud`)"
-        - "traefik.http.routers.manager.entrypoints=websecure"
-        - "traefik.http.routers.manager.middlewares=manager-stripprefix"
-        - "traefik.http.middlewares.manager-stripprefix.stripprefix.prefixes=/manager"
+  # # Incoming spam is (hopefully) filtered by rspamd which runs
+  # # in this service.
+  # filter:
+  #   image: jeboehm/mailserver-filter:latest
+  #   #env_file: /home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env
+  #   volumes:
+  #     - data-filter:/var/lib/rspamd
+  #     - data-dkim:/media/dkim
+  #   networks:
+  #     - net
+  #   deploy:
+  #     labels:
+  #       - "traefik.enable=false"
+  #     replicas: 1
+  #     placement:
+  #       max_replicas_per_node: 1
+  #       constraints:
+  #         - node.role == manager
 
-        - "traefik.http.routers.webmail.rule=Host(`mail.web.elemento.cloud`)"
-        - "traefik.http.routers.webmail.entrypoints=websecure"
-        - "traefik.http.services.webmail.loadbalancer.server.port=81"
-        - "traefik.http.routers.webmail.middlewares=webmail-stripprefix"
-        - "traefik.http.middlewares.webmail-stripprefix.stripprefix.prefixes=/webmail"
-      replicas: 1
-      placement:
-        max_replicas_per_node: 1
-        constraints:
-          - node.role == manager
+  # # Incoming viruses or malware is detected and rejected by
+  # # this service. Can be removed if FILTER_VIRUS is set to false.
+  # virus:
+  #   image: jeboehm/mailserver-virus:latest
+  #   #env_file: /home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env
+  #   volumes:
+  #     - data-virusdb:/var/lib/clamav
+  #   networks:
+  #     - net
+  #   deploy:
+  #     labels:
+  #       - "traefik.enable=false"
+  #     replicas: 1
+  #     placement:
+  #       max_replicas_per_node: 1
+  #       constraints:
+  #         - node.role == manager
 
-  # Incoming spam is (hopefully) filtered by rspamd which runs
-  # in this service.
-  filter:
-    image: jeboehm/mailserver-filter:latest
-    #env_file: /home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env
-    volumes:
-      - /home/admin/dev/elemento-marketplace-web/mailserver/data-filter:/var/lib/rspamd
-      - /home/admin/dev/elemento-marketplace-web/mailserver/ata-dkim:/media/dkim
-    networks:
-      - net
-    deploy:
-      labels:
-        - "traefik.enable=false"
-      replicas: 1
-      placement:
-        max_replicas_per_node: 1
-        constraints:
-          - node.role == manager
-
-  # Incoming viruses or malware is detected and rejected by
-  # this service. Can be removed if FILTER_VIRUS is set to false.
-  virus:
-    image: jeboehm/mailserver-virus:latest
-    #env_file: /home/admin/dev/elemento-marketplace-web/mailserver/mailserver.env
-    volumes:
-      - /home/admin/dev/elemento-marketplace-web/mailserver/data-virusdb:/var/lib/clamav
-    networks:
-      - net
-    deploy:
-      labels:
-        - "traefik.enable=false"
-      replicas: 1
-      placement:
-        max_replicas_per_node: 1
-        constraints:
-          - node.role == manager
-
-  redis:
-    image: redis:7.2-alpine
-    command: ["redis-server", "--appendonly", "yes"]
-    volumes:
-      - /home/admin/dev/elemento-marketplace-web/mailserver/data-redis:/data
-    networks:
-      - net
-    deploy:
-      labels:
-        - "traefik.enable=false"
-      replicas: 1
-      placement:
-        max_replicas_per_node: 1
-        constraints:
-          - node.role == manager
+  # redis:
+  #   image: redis:7.2-alpine
+  #   command: ["redis-server", "--appendonly", "yes"]
+  #   volumes:
+  #     - data-redis:/data
+  #   networks:
+  #     - net
+  #   deploy:
+  #     labels:
+  #       - "traefik.enable=false"
+  #     replicas: 1
+  #     placement:
+  #       max_replicas_per_node: 1
+  #       constraints:
+  #         - node.role == manager
       
   ###########################################
 
@@ -365,6 +352,13 @@ services:
 volumes:
   mysql_data:
   data:
+  data-db:
+  data-dkim:
+  data-mail:
+  data-tls:
+  data-filter:
+  data-virusdb:
+  data-redis:
 
 networks:
   net:
