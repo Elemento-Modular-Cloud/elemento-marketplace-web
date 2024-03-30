@@ -4,12 +4,13 @@
 - [Mailu](https://mailu.io/2.0/index.html)
 
 ## Setup
-In order to setup an account:
+To launch:
 ```
-docker exec -ti mailserver setup email add user@mail.web.elemento.cloud
+cd /mailu
+docker compose -f mailserver-compose.yml up -d
 ```
 
-Considering docker swarm, it is possible to do it directly from the container.
+In order to setup an account:
 ```
-setup email add user@mail.web.elemento.cloud
+docker compose -p mailu exec admin flask mailu admin postmaster mail.web.elemento.cloud password
 ```
