@@ -15,6 +15,12 @@
 - [homepage](https://github.com/gethomepage/homepage)
 - [homepage autoconfig](https://hub.docker.com/r/nicolagutierrez/traefik-discovery)
   - NOTE: the services.yaml must be set with the 600 permission
+  - The container is reachable only inside the docker network, use crontab to do the update of services, here the command:
+  ```
+  curl -X POST services-discovery:5001/api/v1/homepage/update
+  ```
+
+
 
 ### System design
 
