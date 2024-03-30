@@ -14,6 +14,8 @@ services:
     # or ssl/tls with Let's Encrypt (cert and key as two files)
     #      - "/etc/letsencrypt/live/<your_server>/cert.pem:/etc/ssl/private/pure-ftpd-cert.pem"
     #      - "/etc/letsencrypt/live/<your_server>/privkey.pem:/etc/ssl/private/pure-ftpd-key.pem"
+    networks:
+      - net
     environment:
       PUBLICHOST: "localhost"
       FTP_USER_NAME: admin
@@ -160,25 +162,31 @@ services:
           - node.role == manager
     networks:
       - net
+  
+  services-discovery:
+    image: nicolagutierrez/traefik-discovery:latest
+    #environment:
+      #HOMEPAGE_PATH: "" # if you have a custom folder (default is homepage/config/services.yaml)
+      #TRAEFIK_PATH: "" # if you have a custom URL (default is http://web1.elemento.cloud:8080/api/http/routers)
+    volumes:
+      - "/home/admin/dev/elemento-marketplace-web/homepage/config:/app/homepage/config"
+    networks:
+      - net
+    deploy:
+      labels:
+        - "traefik.enable=false"
+      replicas: 1
+      placement:
+        max_replicas_per_node: 1
 
   traefik:
     image: traefik:v2.11
-    #command:
-      # - "--entryPoints.smtp.address=:25"
-      # #- "--entryPoints.smtp-ssl.address=:465"
-      # #- "--entryPoints.imap-ssl.address=:993"
-      # - "--entryPoints.sieve.address=:4190"
     environment:
       - GOOGLE_DOMAINS_ACCESS_TOKEN=YThLZFZsOGplRWdrZG15S04tc3hPZw==
     ports:
       - "80:80"
       - "443:443"
       - "8080:8080"
-      # mailserver
-      # - "25:25"
-      # #- "465:465"
-      # #- "993:993"
-      # - "4190:4190"
     volumes:
       - "/home/admin/dev/elemento-marketplace-web/traefik/traefik.yml:/etc/traefik/traefik.yml"
       - "/home/admin/dev/elemento-marketplace-web/traefik/acme.json:/acme.json"

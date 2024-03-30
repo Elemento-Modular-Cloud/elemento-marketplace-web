@@ -2,21 +2,7 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/services
 
-- Services:   
-    - Web Application:
-        icon: php.png
-        href: http://nginx.web.elemento.cloud
-        description: Hosted web Application
-        
-    - Database:
-        icon: phpmyadmin.png
-        href: http://phpmyadmin.web.elemento.cloud
-        description: Access your data!
-
-    - Mail client:
-        icon: docker-mailserver.png
-        href: http://localhost/
-        description: Mail box
+- Services:
 
 - Admin Tools:
     - Portainer dashboard:

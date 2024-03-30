@@ -11,8 +11,10 @@
 - Container per esecuzione [PHP FPM](https://hub.docker.com/layers/library/php/fpm-alpine3.19/images/sha256-4df626957fe8907b11d439553e830fbd815737a2c3ad15af912152ef2958ccf9?context=explore) da v7 a successive
 - [Portainer](https://docs.portainer.io/user/docker/stacks)
 - [traefik](https://doc.traefik.io/traefik/)
+  - NOTE: the acme.json file must be set with the 600 permission
 - [homepage](https://github.com/gethomepage/homepage)
-- homepage autoconfig
+- [homepage autoconfig](https://hub.docker.com/r/nicolagutierrez/traefik-discovery)
+  - NOTE: the services.yaml must be set with the 600 permission
 
 ### System design
 
