@@ -23,8 +23,8 @@ services:
       options:
         tag: mailu-front
     ports:
-      - "37.27.99.151:80:81"
-      - "37.27.99.151:443:444"
+      # - "37.27.99.151:80:80"
+      # - "37.27.99.151:443:443"
       - "37.27.99.151:25:25"
       - "37.27.99.151:465:465"
       - "37.27.99.151:587:587"
@@ -32,6 +32,15 @@ services:
       - "37.27.99.151:995:995"
       - "37.27.99.151:143:143"
       - "37.27.99.151:993:993"
+    labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.nginx.rule=Host(`mail.web.elemento.cloud`)"
+        - "traefik.http.services.nginx.loadbalancer.server.port=80"
+        - "traefik.http.services.nginx.loadbalancer.server.port=443"
+        - "traefik.http.routers.nginx.entrypoints=websecure"
+        - "traefik.http.routers.nginx.tls=true"
+        - "traefik.http.routers.nginx.tls.certresolver=leresolver"
+        - "traefik.http.routers.nginx.tls.domains[0].main=mail.web.elemento.cloud"
     networks:
       - default
       - webmail
