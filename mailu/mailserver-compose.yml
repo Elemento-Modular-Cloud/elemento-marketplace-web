@@ -35,12 +35,12 @@ services:
     labels:
         - "traefik.enable=true"
         - "traefik.http.routers.front.rule=Host(`mail.web.elemento.cloud`)"
-        - "traefik.http.services.front.loadbalancer.server.port=80"
-        - "traefik.http.services.front.loadbalancer.server.port=443"
-        - "traefik.http.routers.front.entrypoints=websecure"
-        - "traefik.http.routers.front.tls=true"
-        - "traefik.http.routers.front.tls.certresolver=leresolver"
-        - "traefik.http.routers.front.tls.domains[0].main=mail.web.elemento.cloud"
+        # - "traefik.http.services.front.loadbalancer.server.port=80"
+        # - "traefik.http.services.front.loadbalancer.server.port=443"
+        # - "traefik.http.routers.front.entrypoints=websecure"
+        # - "traefik.http.routers.front.tls=true"
+        # - "traefik.http.routers.front.tls.certresolver=leresolver"
+        # - "traefik.http.routers.front.tls.domains[0].main=mail.web.elemento.cloud"
     networks:
       - default
       - webmail
@@ -157,8 +157,6 @@ services:
       - resolver
     dns:
       - 192.168.203.254
-
-
 
   # Webmail
   webmail:
