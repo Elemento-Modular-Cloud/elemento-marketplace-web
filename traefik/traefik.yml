@@ -85,7 +85,7 @@ certificatesResolvers:
       #
       # Optional (but recommended)
       #
-      #tlsChallenge: {}
+      tlsChallenge: {}
 
       # Use a HTTP-01 ACME challenge.
       #
@@ -104,14 +104,14 @@ certificatesResolvers:
       #
       # Optional
       #
-      dnsChallenge:
+      # dnsChallenge:
 
         # DNS provider used.
         #
         # Required
         #
         # provider: digitalocean
-        provider: googledomains
+        # provider: googledomains
 
         # By default, the provider will verify the TXT DNS challenge record before letting ACME verify.
         # If delayBeforeCheck is greater than zero, this check is delayed for the configured duration in seconds.
@@ -127,9 +127,9 @@ certificatesResolvers:
         # Optional
         # Default: empty
         #
-        resolvers:
-         - "1.1.1.1:53"
-         - "8.8.8.8:53"
+        # resolvers:
+        #  - "1.1.1.1:53"
+        #  - "8.8.8.8:53"
 
         # Disable the DNS propagation checks before notifying ACME that the DNS challenge is ready.
         #

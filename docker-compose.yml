@@ -162,12 +162,12 @@ services:
           - node.role == manager
     networks:
       - net
-  
+
   services-discovery:
     image: nicolagutierrez/traefik-discovery:latest
     #environment:
-      #HOMEPAGE_PATH: "" # if you have a custom folder (default is homepage/config/services.yaml)
-      #TRAEFIK_PATH: "" # if you have a custom URL (default is http://web1.elemento.cloud:8080/api/http/routers)
+    #HOMEPAGE_PATH: "" # if you have a custom folder (default is homepage/config/services.yaml)
+    #TRAEFIK_PATH: "" # if you have a custom URL (default is http://web1.elemento.cloud:8080/api/http/routers)
     volumes:
       - "/home/admin/dev/elemento-marketplace-web/homepage/config:/app/homepage/config"
     networks:

@@ -26,6 +26,13 @@
 
 ![System design](./img/system-design.png)
 
+### Starting the Stack
+
+To start the stack using `docker stack deploy`, run the following command:
+```bash
+docker stack deploy --compose-file docker-compose.yml web
+```
+
 ### Conventions
 
 In Elemento we use [Google Style coding conventions](https://google.github.io/styleguide/).
