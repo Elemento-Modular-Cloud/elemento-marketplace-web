@@ -20,12 +20,17 @@ services:
       PUBLICHOST: "localhost"
       FTP_USER_NAME: admin
       FTP_USER_PASS: change_me
-      FTP_USER_HOME: /home/admin
+      FTP_USER_HOME: ./src
     # also for ssl/tls:
     #      ADDED_FLAGS: "--tls=2"
     deploy:
       labels:
-        - "traefik.enable=false"
+        - "traefik.enable=true"
+        - "traefik.http.routers.ftp.rule=Host(`ftp.web.elemento.cloud`)"
+        - "traefik.http.routers.ftp.entrypoints=websecure"
+        - "traefik.http.routers.ftp.tls=true"
+        - "traefik.http.routers.ftp.tls.certresolver=leresolver"
+        - "traefik.http.routers.ftp.tls.domains[0].main=ftp.web.elemento.cloud"
       mode: replicated
       replicas: 1
       placement:
@@ -188,24 +193,6 @@ services:
       placement:
         max_replicas_per_node: 1
 
-  traefik:
-    image: traefik:v2.11
-    environment:
-      - GOOGLE_DOMAINS_ACCESS_TOKEN=YThLZFZsOGplRWdrZG15S04tc3hPZw==
-    ports:
-      - "80:80"
-      - "443:443"
-      - "8080:8080"
-    volumes:
-      - "./traefik/traefik.yml:/etc/traefik/traefik.yml"
-      - "./traefik/acme.json:/acme.json"
-      - "/var/run/docker.sock:/var/run/docker.sock"
-    deploy:
-      placement:
-        constraints:
-          - node.role == manager
-    networks:
-      - net
   check-services:
     image: alpine:latest
     volumes:
@@ -220,6 +207,23 @@ services:
       - crontab-ui
       - services-discovery
     command: /bin/sh -c "/usr/local/bin/check_services.sh"
+    networks:
+      - net
+
+  traefik:
+    image: traefik:v2.11
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - "./traefik/traefik.yml:/etc/traefik/traefik.yml"
+      - "./traefik/acme.json:/acme.json"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
     networks:
       - net
 
