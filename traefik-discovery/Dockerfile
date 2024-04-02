@@ -2,6 +2,9 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
+ARG HOMEPAGE_PATH
+ARG TRAEFIK_ROUTE
+
 COPY ./src /app
 COPY requirements.txt /app
 
