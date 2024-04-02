@@ -127,6 +127,15 @@ services:
     volumes:
       - "/home/admin/dev/elemento-marketplace-web/homepage/config:/app/config"
       - "/var/run/docker.sock:/var/run/docker.sock"
+    depends_on:
+      - ftp-server
+      - phpmyadmin
+      - php
+      - nginx
+      - traefik
+      - mysql_db
+      - crontab-ui
+      - services-discovery
     deploy:
       labels:
         - "traefik.enable=true"
@@ -195,6 +204,22 @@ services:
       placement:
         constraints:
           - node.role == manager
+    networks:
+      - net
+  check-services:
+    image: alpine:latest
+    volumes:
+      - "./check_services/check_services.sh:/usr/local/bin/check_services.sh:ro"
+    depends_on:
+      - ftp-server
+      - phpmyadmin
+      - php
+      - nginx
+      - mysql_db
+      - traefik
+      - crontab-ui
+      - services-discovery
+    command: /bin/sh -c "/usr/local/bin/check_services.sh"
     networks:
       - net
 
