@@ -201,9 +201,20 @@ services:
       - traefik
       - crontab-ui
       - services-discovery
-    #command: /bin/sh -c "/usr/local/bin/check_services.sh"
+    command: /bin/sh -c "
+        apk update && apk upgrade && apk add curl && \
+        if curl -X GET services-discovery:5001/api/v1/status | grep -q '{\"message\":\"Traefik discovery is running\"}'; then \
+          echo 'OK'; \
+        else \
+          exit 1; \
+        fi && \
+        curl -X POST services-discovery:5001/api/v1/homepage/refresh"
     networks:
       - net
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
 
   traefik:
     image: traefik:v2.11
