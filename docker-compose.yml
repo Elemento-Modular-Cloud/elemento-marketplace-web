@@ -209,7 +209,7 @@ services:
   check-services:
     image: alpine:latest
     volumes:
-      - "./check_services/check_services.sh:/usr/local/bin/check_services.sh:ro"
+      - "./check_services/check_services.sh:/usr/local/bin/check_services.sh"
     depends_on:
       - ftp-server
       - phpmyadmin
