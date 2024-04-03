@@ -13,7 +13,7 @@
             type: portainer
             url: https://web1.elemento.cloud:9443
             env: 0
-            key: ${PTR_ACCESS_KEY}
+            key: ptr_fh70AF+jq6Rjcu4kFfeyrlfhd5Ymb9zNZzJgfXRvOnM=
 
     - Traefik dashboard:
         icon: traefik.png

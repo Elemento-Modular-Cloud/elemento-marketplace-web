@@ -33,6 +33,10 @@ To start the stack using `docker stack deploy`, run the following command:
 docker stack deploy --compose-file docker-compose.yml web
 ```
 
+## Start the Mail service
+To start the mail stack use another VM and run the commands as explained in the "mailu" folder.
+That service works on docker-compose.
+
 ### Conventions
 
 In Elemento we use [Google Style coding conventions](https://google.github.io/styleguide/).
