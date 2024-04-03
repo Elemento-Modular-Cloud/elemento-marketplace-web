@@ -13,11 +13,13 @@
 - [traefik](https://doc.traefik.io/traefik/)
   - NOTE: the acme.json file must be set with the 600 permission
 - [homepage](https://github.com/gethomepage/homepage)
-- [homepage autoconfig](https://hub.docker.com/r/nicolagutierrez/traefik-discovery)
+- homepage autoconfig (traefik-discovery)
   - NOTE: the services.yaml must be set with the 600 permission
-  - The container is reachable only inside the docker network, use crontab to do the update of services, here the command:
+  - The container is reachable only inside the docker network, use crontab to do the update (or refresh) of services, here the command:
   ```
   curl -X POST services-discovery:5001/api/v1/homepage/update
+  or
+  curl -X POST services-discovery:5001/api/v1/homepage/refresh (delete and recreate all services)
   ```
 
 
@@ -28,8 +30,12 @@
 
 ### Starting the Stack
 
-To start the stack using `docker stack deploy`, run the following command:
+
+To start the stack using docker stack deploy, run the following command with admin privileges:
 ```bash
+chmod 600 traefik/acme.json
+chmod 600 homepage/config/services.yaml
+docker network create --driver overlay net
 docker stack deploy --compose-file docker-compose.yml web
 ```
 
