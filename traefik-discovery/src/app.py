@@ -3,7 +3,7 @@ import requests, yaml, re, os
 from constants import icons, titles
 
 homepage_path = os.getenv("HOMEPAGE_PATH", "homepage/config/services.yaml")
-traefik_path = os.getenv("TRAEFIK_PATH", "http://web1.elemento.cloud:8080/api/http/routers")
+traefik_path = os.getenv("TRAEFIK_PATH", "traefik:8080/api/http/routers")
 pattern = r"Host\([^)]*\)"
 app = Flask(__name__)
 
