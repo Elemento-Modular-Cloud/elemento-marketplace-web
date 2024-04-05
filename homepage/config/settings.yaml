@@ -1,0 +1,34 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/settings
+
+title: Elemento Modular Cloud
+favicon: https://assets-global.website-files.com/649eac850c6f83f44258489f/649ead5c294631bedca510d4_favicon-32x32.png
+headerStyle: boxed
+
+theme: dark
+color: slate
+language: en
+cardBlur: sm # sm, "", md, etc... see https://tailwindcss.com/docs/backdrop-blur
+
+background:
+  image: https://assets-global.website-files.com/649ecae4dff1a5cd277787df/65d5e74b1c2fd5f418269961_Cloudfest_flip.webp
+  blur: sm # sm, "", md, xl... see https://tailwindcss.com/docs/backdrop-blur
+  saturate: 70 # 0, 50, 100... see https://tailwindcss.com/docs/backdrop-saturate
+  brightness: 60 # 0, 50, 75... see https://tailwindcss.com/docs/backdrop-brightness
+  opacity: 50 # 0-100
+
+hideVersion: true
+showStats: true
+
+layout:
+  Services:
+    style: row
+    columns: 3
+  Admin Tools:
+    style: row
+    columns: 3
+
+# ASSETS
+# Logo: https://raw.githubusercontent.com/Elemento-Modular-Cloud/graphic-assets/main/logos/horizontal/Logo%20horizontal%20darkbg%20transp.svg
+# Background: https://assets-global.website-files.com/649ecae4dff1a5cd277787df/65d5e74b1c2fd5f418269961_Cloudfest_flip.webp

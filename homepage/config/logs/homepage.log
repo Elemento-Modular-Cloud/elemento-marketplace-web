@@ -1,0 +1,2151 @@
+[2024-03-07T14:31:15.068Z] info: docker.yaml was copied to the config folder
+[2024-03-07T14:31:15.070Z] info: services.yaml was copied to the config folder
+[2024-03-07T14:31:15.072Z] info: bookmarks.yaml was copied to the config folder
+[2024-03-07T14:31:15.073Z] info: widgets.yaml was copied to the config folder
+[2024-03-07T14:31:15.074Z] info: custom.css was copied to the config folder
+[2024-03-07T14:31:15.076Z] info: custom.js was copied to the config folder
+[2024-03-07T14:31:15.254Z] info: kubernetes.yaml was copied to the config folder
+[2024-03-07T16:14:47.680Z] error: undefined
+[2024-03-07T16:14:47.692Z] error: undefined
+[2024-03-18T17:24:41.230Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:24:41.235Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:24:41.239Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:24:41.242Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:24:41.243Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:24:41.250Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:24:41.250Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:24:47.991Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:24:47.991Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:24:47.992Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:24:47.993Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:24:47.993Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:24:48.002Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:24:48.003Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:24:48.542Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:24:48.542Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:24:48.543Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:24:48.543Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:24:48.544Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:24:48.567Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:24:48.568Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:24:48.949Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:24:48.950Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:24:48.951Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:24:48.953Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:24:48.953Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:24:48.955Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:24:48.955Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:24:54.041Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:24:54.041Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:24:54.043Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:24:54.043Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:24:54.044Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:24:54.046Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:24:54.046Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:25:15.417Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:25:15.418Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:25:15.418Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:25:15.418Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:25:15.418Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:25:15.419Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:25:15.420Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:25:18.879Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:25:18.879Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:25:18.879Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:25:18.879Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:25:18.880Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:25:18.883Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:25:18.884Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:25:19.224Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:25:19.224Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:25:19.224Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:25:19.228Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:25:19.228Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:25:19.232Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:25:19.233Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:25:24.187Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:25:24.188Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:25:24.188Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:25:24.197Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:25:24.197Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:25:24.199Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:25:24.199Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:25:35.445Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:25:35.446Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:25:35.454Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:25:35.454Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:25:35.455Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:25:35.455Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:25:35.455Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:25:53.456Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:25:53.457Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:25:53.457Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:25:53.458Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:25:53.458Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:25:53.461Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:25:53.461Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:26:24.090Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:26:24.091Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:26:24.094Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:26:24.094Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:26:24.095Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:26:24.095Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:26:24.095Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:26:24.376Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:26:24.376Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:26:24.376Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:26:24.380Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:26:24.381Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:26:24.387Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:26:24.387Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:26:42.343Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:26:42.343Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:26:42.343Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:26:42.367Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:26:42.368Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:26:42.368Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:26:42.369Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:26:42.671Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:26:42.671Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:26:42.671Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:26:42.671Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:26:42.671Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:26:42.674Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:26:42.675Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:26:43.402Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:26:43.403Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:26:43.403Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:26:43.406Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:26:43.407Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:26:43.410Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:26:43.410Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:31:07.466Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:31:07.467Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:31:07.467Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:31:07.469Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:31:07.469Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:31:07.471Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:31:07.471Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:31:28.556Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:31:28.557Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:31:28.557Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:31:28.558Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:31:28.558Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:31:28.558Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:31:28.558Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:31:54.057Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:31:54.059Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:31:54.059Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:31:54.061Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:31:54.061Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:31:54.071Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:31:54.071Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:32:12.574Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:32:12.574Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:32:12.584Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:32:12.584Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:32:12.584Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:32:12.585Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:32:12.585Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:32:12.953Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:32:12.953Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:32:12.953Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:32:12.956Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:32:12.956Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:32:12.957Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:32:12.957Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:32:13.362Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:32:13.362Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:32:13.362Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:32:13.372Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:32:13.372Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:32:13.373Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:32:13.373Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:32:15.231Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:32:15.231Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:32:15.231Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:32:15.235Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:32:15.235Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:32:15.239Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:32:15.239Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:32:23.916Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:32:23.916Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:32:23.916Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:32:23.917Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:32:23.918Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:32:23.918Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:32:23.918Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:32:51.290Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:32:51.290Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:32:51.291Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:32:51.291Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:32:51.291Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:32:51.292Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:32:51.293Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:33:46.354Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:33:46.354Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:33:46.355Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:33:46.355Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:33:46.355Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:33:46.359Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:33:46.360Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:33:46.675Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:33:46.675Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:33:46.676Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:33:46.684Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:33:46.684Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:33:46.689Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:33:46.690Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:33:56.502Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:33:56.503Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:33:56.503Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:33:56.507Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:33:56.507Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:33:56.511Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:33:56.511Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:33:56.815Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:33:56.815Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:33:56.815Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:33:56.816Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:33:56.816Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:33:56.819Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:33:56.819Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:33:57.725Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:33:57.725Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:33:57.726Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:33:57.726Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:33:57.726Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:33:57.731Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:33:57.731Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:19.533Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:34:19.534Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:19.538Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:34:19.538Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:19.538Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:34:19.539Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:34:19.539Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:19.861Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:34:19.861Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:19.861Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:34:19.862Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:19.863Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:34:19.863Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:19.863Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:34:20.195Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:34:20.195Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:20.195Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:34:20.203Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:34:20.204Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:20.205Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:34:20.205Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:29.905Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:34:29.905Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:29.909Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:34:29.909Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:29.909Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:34:29.915Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:34:29.915Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:30.399Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:34:30.399Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:30.399Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:34:30.400Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:34:30.401Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:30.402Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:34:30.402Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:36.555Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:34:36.555Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:36.555Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:34:36.556Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:34:36.556Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:36.556Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:34:36.557Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:37.133Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:34:37.133Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:37.133Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:34:37.136Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:34:37.136Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:37.137Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:34:37.138Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:58.260Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:34:58.260Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:58.260Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:34:58.261Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:34:58.261Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:58.261Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:34:58.262Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:58.618Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:34:58.619Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:58.619Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:34:58.619Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:34:58.620Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:58.625Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:34:58.625Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:59.197Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:34:59.197Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:59.198Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:34:59.202Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:34:59.202Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:34:59.206Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:34:59.206Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:35:03.073Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:35:03.073Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:35:03.073Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:35:03.078Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:35:03.078Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:35:03.080Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:35:03.080Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:00.685Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:36:00.685Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:00.685Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:36:00.686Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:36:00.686Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:00.689Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:36:00.690Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:01.018Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:36:01.019Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:01.019Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:36:01.021Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:36:01.021Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:01.022Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:36:01.023Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:02.260Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:36:02.261Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:02.261Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:36:02.262Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:36:02.262Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:02.265Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:36:02.266Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:13.135Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:36:13.135Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:13.136Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:36:13.136Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:13.137Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:36:13.144Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:36:13.145Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:13.472Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:36:13.472Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:13.473Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:36:13.473Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:13.476Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:36:13.476Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:13.476Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:36:15.232Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:36:15.233Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:15.233Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:36:15.238Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:36:15.238Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:15.242Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:36:15.242Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:24.046Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:36:24.046Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:24.046Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:36:24.054Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:36:24.055Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:24.059Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:36:24.059Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:24.379Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:36:24.380Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:24.380Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:36:24.380Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:36:24.381Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:24.383Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:36:24.383Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:37.530Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:36:37.531Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:37.531Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:36:37.534Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:36:37.534Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:37.542Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:36:37.543Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:37.865Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:36:37.866Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:37.866Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:36:37.872Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:36:37.872Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:36:37.878Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:36:37.878Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:39:42.492Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:39:42.492Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:39:42.492Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:39:42.493Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:39:42.493Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:39:42.499Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:39:42.499Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:39:42.853Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:39:42.854Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:39:42.854Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:39:42.858Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:39:42.858Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:39:42.871Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:39:42.871Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:39:49.939Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:39:49.939Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:39:49.939Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:39:49.940Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:39:49.940Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:39:49.942Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:39:49.942Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:39:50.284Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:39:50.284Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:39:50.284Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:39:50.285Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:39:50.285Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:39:50.289Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:39:50.290Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:04.288Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:42:04.288Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:04.288Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:42:04.289Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:04.289Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:42:04.291Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:42:04.291Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:04.715Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:42:04.715Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:04.715Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:42:04.716Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:42:04.716Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:04.718Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:42:04.718Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:20.155Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:42:20.155Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:20.156Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:42:20.156Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:20.157Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:42:20.158Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:20.158Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:42:20.477Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:42:20.478Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:20.479Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:42:20.479Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:42:20.480Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:20.483Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:42:20.484Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:34.403Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:42:34.403Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:34.403Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:42:34.403Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:34.403Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:42:34.404Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:42:34.404Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:34.726Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:42:34.726Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:34.726Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:42:34.727Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:42:34.728Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:34.728Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:42:34.728Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:38.789Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:42:38.789Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:38.789Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-03-18T17:42:38.794Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:42:38.794Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:42:38.796Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:42:38.796Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:46:14.489Z] error: <httpProxy> Error calling https://web.elemento.cloud:8080/api/overview...
+[2024-03-18T17:46:14.490Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:46:14.491Z] error: <httpProxy> Error calling https://web.elemento.cloud/api/speedtest/latest...
+[2024-03-18T17:46:14.491Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:46:14.497Z] error: <httpProxy> Error calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json...
+[2024-03-18T17:46:14.497Z] error: <httpProxy> [
+  500,
+  Error: getaddrinfo ENOTFOUND web.elemento.cloud
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'web.elemento.cloud'
+  }
+]
+[2024-03-18T17:46:14.498Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1

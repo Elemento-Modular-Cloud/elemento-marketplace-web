@@ -1,0 +1,12 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/bookmarks
+
+- Info:
+    - Website:
+        - abbr: WE
+          href: https://www.elemento.cloud
+    - Github:
+        - icon: github.png
+          abbr: GH
+          href: https://github.com/Elemento-Modular-Cloud
