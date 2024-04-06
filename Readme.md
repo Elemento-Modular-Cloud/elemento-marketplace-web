@@ -6,8 +6,8 @@
   - User: admin
   - Pass: change_me
 - Uno o piu' container DB [MySQL](https://hub.docker.com/_/mysql) con dashboard [phpmyadmin](https://hub.docker.com/_/phpmyadmin)
-  - DB: 
-  - User: 
+  - DB:
+  - User:
   - Pass: change_me
 - Container per esecuzione [cronjob](https://github.com/alseambusher/crontab-ui)
 - Uno o piu' container per mail server con dashboard per creazione account [Mailu](https://mailu.io/2.0/index.html)
@@ -51,4 +51,3 @@ That service works on docker-compose.
 ### Conventions
 
 In Elemento we use [Google Style coding conventions](https://google.github.io/styleguide/).
-

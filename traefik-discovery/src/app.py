@@ -19,7 +19,7 @@ def check_server():
 
 @app.route("/api/v1/homepage/update", methods=["POST"])
 def homepage_update():
-    try: 
+    try:
 
         # Open the YAML file for reading
         with open(str(homepage_path), "r") as yaml_file:
@@ -52,7 +52,7 @@ def homepage_update():
 
         with open(str(homepage_path), "w") as yaml_file:
             yaml.dump(data, yaml_file)
-        
+
         return jsonify(data[0]["Services"])
 
     except requests.exceptions.RequestException as e:
@@ -62,7 +62,7 @@ def homepage_update():
 
 @app.route("/api/v1/homepage/refresh", methods=["POST"])
 def homepage_refresh():
-    try: 
+    try:
 
         # Open the YAML file for reading
         with open(str(homepage_path), "r") as yaml_file:
@@ -92,7 +92,7 @@ def homepage_refresh():
 
         with open(str(homepage_path), "w") as yaml_file:
             yaml.dump(data, yaml_file)
-        
+
         return jsonify(data[0]["Services"])
 
     except requests.exceptions.RequestException as e:

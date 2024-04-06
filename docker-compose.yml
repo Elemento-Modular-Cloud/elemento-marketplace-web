@@ -2,27 +2,16 @@ version: "3.8"
 
 services:
   ftp-server:
-    image: stilliard/pure-ftpd
+    image: stilliard/pure-ftpd:hardened
     ports:
       - "21:21"
       - "30000-30009:30000-30009" # for passive mode
     volumes:
-      - /mnt/shared_data/elemento-marketplace-web/ftp/data:/home/admin/
-      - /mnt/shared_data/elemento-marketplace-web/ftp/passwd:/etc/pure-ftpd/passwd
-    # uncomment for ssl/tls, see https://github.com/stilliard/docker-pure-ftpd#tls
-    #      - "/folder_on_disk/ssl:/etc/ssl/private/"
-    # or ssl/tls with Let's Encrypt (cert and key as two files)
-    #      - "/etc/letsencrypt/live/<your_server>/cert.pem:/etc/ssl/private/pure-ftpd-cert.pem"
-    #      - "/etc/letsencrypt/live/<your_server>/privkey.pem:/etc/ssl/private/pure-ftpd-key.pem"
-    networks:
-      - net
+      - /mnt/shared_data/elemento-marketplace-web/ftp:/home/admin
     environment:
-      PUBLICHOST: "localhost"
-      FTP_USER_NAME: admin
-      FTP_USER_PASS: change_me
+      FTP_USER_NAME: ${FTP_USER_NAME}
+      FTP_USER_PASS: ${FTP_USER_PASS}
       FTP_USER_HOME: /home/admin
-    # also for ssl/tls:
-    #      ADDED_FLAGS: "--tls=2"
     deploy:
       labels:
         - "traefik.enable=false"
@@ -30,17 +19,17 @@ services:
       replicas: 1
       placement:
         max_replicas_per_node: 1
+    networks:
+      - net
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     environment:
       - PMA_ARBITRARY=1
-      - MYSQL_ROOT_PASSWORD=your_secure_root_password
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - PMA_HOST=mysql_db
       - PMA_PORT=3306
       - APACHE_PORT=8090
-    networks:
-      - net
     depends_on:
       - mysql_db
     deploy:
@@ -55,13 +44,13 @@ services:
       replicas: 1
       placement:
         max_replicas_per_node: 1
-        constraints:
-          - node.role == manager
+    networks:
+      - net
 
   php:
     image: php:fpm-alpine
     volumes:
-      - /mnt/shared_data/elemento-marketplace-web/src/public:/var/www/html/
+      - /mnt/shared_data/elemento-marketplace-web/php/src/public:/var/www/html/
     deploy:
       labels:
         - "traefik.enable=false"
@@ -85,17 +74,13 @@ services:
         - "traefik.http.routers.nginx.rule=Host(`nginx.web.elemento.cloud`)"
         - "traefik.http.services.nginx.loadbalancer.server.port=80"
         - "traefik.http.routers.nginx.entrypoints=websecure"
-        #- "traefik.http.routers.nginx.middlewares=mid-auth"
         - "traefik.http.routers.nginx.tls=true"
         - "traefik.http.routers.nginx.tls.certresolver=leresolver"
         - "traefik.http.routers.nginx.tls.domains[0].main=nginx.web.elemento.cloud"
-        #- "traefik.http.middlewares.mid-auth.basicauth.users=user:$$apr1$$Qwlovodu$$uwqv/FIRdGy4dT2x1fhO7/"
       mode: replicated
       replicas: 1
       placement:
         max_replicas_per_node: 1
-        constraints:
-          - node.role == manager
     networks:
       - net
 
@@ -103,10 +88,10 @@ services:
     image: mysql:8.0
     command: --default-authentication-plugin=caching_sha2_password
     environment:
-      MYSQL_ROOT_PASSWORD: your_secure_root_password
-      MYSQL_DATABASE: your_database_name
-      MYSQL_USER: your_database_user
-      MYSQL_PASSWORD: your_database_password
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - /mnt/shared_data/elemento-marketplace-web/mysql_data:/var/lib/mysql
     healthcheck:
@@ -118,9 +103,6 @@ services:
       labels:
         - "traefik.enable=false"
       replicas: 1
-      placement:
-        constraints:
-          - node.role == manager
     networks:
       - net
 
@@ -173,8 +155,6 @@ services:
       replicas: 1
       placement:
         max_replicas_per_node: 1
-        constraints:
-          - node.role == manager
     networks:
       - net
 
@@ -185,15 +165,15 @@ services:
       TRAEFIK_ROUTE: "traefik:8080/api/http/routers" # docker network
     volumes:
       - "/mnt/shared_data/elemento-marketplace-web/homepage/config:/app/homepage/config"
-    networks:
-      - net
     deploy:
       labels:
         - "traefik.enable=false"
       replicas: 1
       placement:
         max_replicas_per_node: 1
-  
+    networks:
+      - net
+
   check-services:
     image: alpine:latest
     volumes:
@@ -215,12 +195,12 @@ services:
           exit 1; \
         fi && \
         curl -X POST services-discovery:5001/api/v1/homepage/refresh"
-    networks:
-      - net
     deploy:
       replicas: 1
       restart_policy:
         condition: on-failure
+    networks:
+      - net
 
   traefik:
     image: traefik:v2.11
@@ -232,16 +212,8 @@ services:
       - "/mnt/shared_data/elemento-marketplace-web/traefik/traefik.yml:/etc/traefik/traefik.yml"
       - "/mnt/shared_data/elemento-marketplace-web/traefik/acme.json:/acme.json"
       - "/var/run/docker.sock:/var/run/docker.sock"
-    deploy:
-      placement:
-        constraints:
-          - node.role == manager
     networks:
       - net
-
-volumes:
-  mysql_data:
-  data:
 
 networks:
   net:

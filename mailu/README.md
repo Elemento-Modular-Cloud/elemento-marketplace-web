@@ -6,7 +6,7 @@
 
 ## Setup
 It is very important to change the SECRET_KEY in the mailu.env with a random generated 16 characters key on every deployment:
-``` 
+```
 SECRET_KEY=xxxxxxxxxxxxxxxx
 ```
 
