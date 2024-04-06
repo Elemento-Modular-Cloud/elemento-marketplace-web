@@ -18,6 +18,9 @@ entryPoints:
     http:
       tls:
         certResolver: leresolver
+  
+  ftp:
+    address: ":21"
 
 providers:
   docker:
