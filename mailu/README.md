@@ -5,14 +5,15 @@
 - [YouTube Tutorial](https://www.youtube.com/watch?v=ScarlmgD0dU)
 
 ## Setup
-It is very important to change the SECRET_KEY in the mailu.env with a random generated key on every deployment:
+It is very important to change the SECRET_KEY in the mailu.env with a random generated 16 characters key on every deployment:
 ``` 
 SECRET_KEY=xxxxxxxxxxxxxxxx
 ```
 
 To launch:
 ```
-cd /mailu
+cd mailu
+
 docker compose -f mailserver-compose.yml up -d
 ```
 

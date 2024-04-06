@@ -5,15 +5,15 @@
 - Services:
 
 - Admin Tools:
-    - Portainer dashboard:
-        icon: portainer.png
-        href: https://web1.elemento.cloud:9443
-        description: Overview of installe dservices
-        widget:
-            type: portainer
-            url: https://web1.elemento.cloud:9443
-            env: 0
-            key: ptr_fh70AF+jq6Rjcu4kFfeyrlfhd5Ymb9zNZzJgfXRvOnM=
+    # - Portainer dashboard:
+    #     icon: portainer.png
+    #     href: https://web1.elemento.cloud:9443
+    #     description: Overview of installe dservices
+    #     widget:
+    #         type: portainer
+    #         url: https://web1.elemento.cloud:9443
+    #         env: 0
+    #         key: ptr_fh70AF+jq6Rjcu4kFfeyrlfhd5Ymb9zNZzJgfXRvOnM=
 
     - Traefik dashboard:
         icon: traefik.png

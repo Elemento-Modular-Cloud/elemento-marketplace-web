@@ -3,7 +3,12 @@
 ### Specs
 
 - Container per accesso [FTP](https://hub.docker.com/r/stilliard/pure-ftpd)
+  - User: admin
+  - Pass: change_me
 - Uno o piu' container DB [MySQL](https://hub.docker.com/_/mysql) con dashboard [phpmyadmin](https://hub.docker.com/_/phpmyadmin)
+  - DB: 
+  - User: 
+  - Pass: change_me
 - Container per esecuzione [cronjob](https://github.com/alseambusher/crontab-ui)
 - Uno o piu' container per mail server con dashboard per creazione account [Mailu](https://mailu.io/2.0/index.html)
 - Container di front-end per webserver ([nginx](https://hub.docker.com/_/nginx))
