@@ -45,7 +45,7 @@ def homepage_update():
             if (
                 is_custom_service(router["rule"])
                 and name.capitalize() not in keys
-                and name != "homepage"
+                and name != "homepage" and name != "dashboard"
             ):
                 icon = icons[name] if name in icons else ""
                 title = titles[name] if name in titles else name
@@ -89,7 +89,7 @@ def homepage_refresh():
             name = router["name"].split("@")[0]
             if (
                 is_custom_service(router["rule"])
-                and name != "homepage"
+                and name != "homepage" and name != "dashboard"
             ):
                 icon = icons[name] if name in icons else ""
                 title = titles[name] if name in titles else name

@@ -5,22 +5,12 @@
 - Services:
 
 - Admin Tools:
-    # - Portainer dashboard:
-    #     icon: portainer.png
-    #     href: https://web1.elemento.cloud:9443
-    #     description: Overview of installe dservices
-    #     widget:
-    #         type: portainer
-    #         url: https://web1.elemento.cloud:9443
-    #         env: 0
-    #         key: ptr_fh70AF+jq6Rjcu4kFfeyrlfhd5Ymb9zNZzJgfXRvOnM=
-
     - Traefik dashboard:
         icon: traefik.png
-        href: http://web1.elemento.cloud:8080
+        href: https://traefik.web.elemento.cloud
         description: Overview of installed services
         widget:
             type: traefik
-            url: http://web1.elemento.cloud:8080
+            url: https://traefik.web.elemento.cloud
             username: username # optional
             password: password # optional
