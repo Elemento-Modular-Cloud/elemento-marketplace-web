@@ -30,7 +30,7 @@
 
 
 ### Environment variables
-In order to change the default values of the docker compose, you can create a `.env` file in the root of the project and set the variables you want to change. `.env.templarte` can be used as a template renaming it to `.env`.
+In order to change the default values of the docker compose, you can create a `.env` file in the root of the project and set the variables you want to change. `.env.template` can be used as a template renaming it to `.env`.
 
 ### System design
 
@@ -46,6 +46,23 @@ chmod 600 homepage/config/services.yaml
 docker network create --driver overlay net
 docker stack deploy --compose-file docker-compose.yml web
 ```
+
+A setup script is available in the `scripts` folder in order to 
+- customize the hostname in the docker compose;
+- set the credentials (of traefik basic auth) for the services;
+- setup the permissions of the acme.json and services.yaml files;
+- create the network;
+- deploy the stack (optional).
+
+```bash
+python3 scripts/setup.py <customer_name> <password> [-d | --deploy] [stack_name]
+```
+
+1. **customer_name:** used to customize the hostname and to define the username for the basic auth
+2. **password:** for the basic auth
+3. `-d` or `--deploy`: to deploy the stack
+4. **stack_name:** the name of the stack (default: production)
+
 
 ## Start the Mail service
 To start the mail stack use another VM and run the commands as explained in the "mailu" folder.
