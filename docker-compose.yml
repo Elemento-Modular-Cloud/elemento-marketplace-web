@@ -37,10 +37,10 @@ services:
         - "traefik.enable=true"
         - "traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin.web.elemento.cloud`)"
         - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
-        - "traefik.http.services.phpmyadmin.loadbalancer.server.port=8090"
         - "traefik.http.routers.phpmyadmin.tls=true"
         - "traefik.http.routers.phpmyadmin.tls.certresolver=leresolver"
         - "traefik.http.routers.phpmyadmin.tls.domains[0].main=phpmyadmin.web.elemento.cloud"
+        - "traefik.http.services.phpmyadmin.loadbalancer.server.port=8090"
       replicas: 1
       placement:
         max_replicas_per_node: 1
@@ -84,11 +84,11 @@ services:
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.nginx.rule=Host(`nginx.web.elemento.cloud`)"
-        - "traefik.http.services.nginx.loadbalancer.server.port=80"
         - "traefik.http.routers.nginx.entrypoints=websecure"
         - "traefik.http.routers.nginx.tls=true"
         - "traefik.http.routers.nginx.tls.certresolver=leresolver"
         - "traefik.http.routers.nginx.tls.domains[0].main=nginx.web.elemento.cloud"
+        - "traefik.http.services.nginx.loadbalancer.server.port=80"
       mode: replicated
       replicas: 1
       placement:
@@ -114,12 +114,12 @@ services:
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.homepage.rule=Host(`homepage.web.elemento.cloud`)"
-        - "traefik.http.services.homepage.loadbalancer.server.port=3000"
         - "traefik.http.routers.homepage.entrypoints=websecure"
         - "traefik.http.routers.homepage.middlewares=mid-auth"
         - "traefik.http.routers.homepage.tls=true"
         - "traefik.http.routers.homepage.tls.certresolver=leresolver"
         - "traefik.http.routers.homepage.tls.domains[0].main=homepage.web.elemento.cloud"
+        - "traefik.http.services.homepage.loadbalancer.server.port=3000"
         - "traefik.http.middlewares.mid-auth.basicauth.users=user:$$apr1$$Qwlovodu$$uwqv/FIRdGy4dT2x1fhO7/"
       mode: replicated
       replicas: 1
@@ -134,12 +134,12 @@ services:
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.crontab.rule=Host(`crontab.web.elemento.cloud`)"
-        - "traefik.http.services.crontab.loadbalancer.server.port=8000"
         - "traefik.http.routers.crontab.entrypoints=websecure"
         - "traefik.http.routers.crontab.middlewares=mid-auth"
         - "traefik.http.routers.crontab.tls=true"
         - "traefik.http.routers.crontab.tls.certresolver=leresolver"
         - "traefik.http.routers.crontab.tls.domains[0].main=crontab.web.elemento.cloud"
+        - "traefik.http.services.crontab.loadbalancer.server.port=8000"
         - "traefik.http.middlewares.mid-auth.basicauth.users=user:$$apr1$$Qwlovodu$$uwqv/FIRdGy4dT2x1fhO7/"
       mode: replicated
       replicas: 1
@@ -150,9 +150,7 @@ services:
 
   services-discovery:
     image: ghcr.io/nicolagutierrez/traefik-discovery:latest
-    environment:
-      HOMEPAGE_PATH: "homepage/config/services.yaml"
-      TRAEFIK_ROUTE: "traefik:8080/api/http/routers" # docker network
+    env_file: .env
     depends_on:
       - homepage
     volumes:
@@ -203,6 +201,21 @@ services:
       - "/mnt/shared_data/elemento-marketplace-web/traefik/traefik.yml:/etc/traefik/traefik.yml"
       - "/mnt/shared_data/elemento-marketplace-web/traefik/acme.json:/acme.json"
       - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.dashboard.rule=Host(`traefik.web.elemento.cloud`)"
+        - "traefik.http.routers.dashboard.entrypoints=websecure"
+        - "traefik.http.routers.dashboard.service=api@internal"
+        - "traefik.http.routers.dashboard.middlewares=mid-auth"
+        - "traefik.http.routers.dashboard.tls=true"
+        - "traefik.http.routers.dashboard.tls.certresolver=leresolver"
+        - "traefik.http.routers.dashboard.tls.domains[0].main=traefik.web.elemento.cloud"
+        - "traefik.http.services.dummy-service.loadbalancer.server.port=9999"
+        - "traefik.http.middlewares.mid-auth.basicauth.users=user:$$apr1$$Qwlovodu$$uwqv/FIRdGy4dT2x1fhO7/"
+      placement:
+        constraints:
+          - node.role==manager
     networks:
       - net
 

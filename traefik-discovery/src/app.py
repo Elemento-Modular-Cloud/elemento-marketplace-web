@@ -1,12 +1,16 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify
 import requests, yaml, re, os
 from constants import icons, titles
 
-homepage_path = os.getenv("HOMEPAGE_PATH", "homepage/config/services.yaml")
-traefik_path = os.getenv("TRAEFIK_PATH", "traefik:8080/api/http/routers")
+homepage_path = os.getenv("HOMEPAGE_PATH")
+traefik_path = os.getenv("TRAEFIK_ROUTE")
+user = os.getenv("USER")
+password = os.getenv("PASSWORD")
 pattern = r"Host\([^)]*\)"
 app = Flask(__name__)
 
+if homepage_path is not None or not traefik_path is not None:
+    app.logger.info("HOMEPAGE_PATH and TRAEFIK_ROUTE must be set!")
 
 def is_custom_service(rule):
     return re.search(pattern, rule) is not None
@@ -25,7 +29,11 @@ def homepage_update():
         with open(str(homepage_path), "r") as yaml_file:
             data = yaml.safe_load(yaml_file)
 
-        response = requests.get(str(traefik_path))
+        if user is not None and password is not None:
+            response = requests.get(str(traefik_path), auth=(user, password))
+        else:
+            app.logger.info(f"No authentication provided, using unauthenticated request.")
+            response = requests.get(str(traefik_path))
 
         routers = response.json()
         if data[0]["Services"] == None:
@@ -45,7 +53,7 @@ def homepage_update():
                     {
                         title.capitalize(): {
                             "icon": icon,
-                            "href": "http://" + router["rule"].split("`")[1],
+                            "href": "https://" + router["rule"].split("`")[1],
                         }
                     }
                 )
@@ -68,7 +76,11 @@ def homepage_refresh():
         with open(str(homepage_path), "r") as yaml_file:
             data = yaml.safe_load(yaml_file)
 
-        response = requests.get(str(traefik_path))
+        if user is not None and password is not None:
+            response = requests.get(str(traefik_path), auth=(user, password))
+        else:
+            app.logger.info(f"No authentication provided, using unauthenticated request.")
+            response = requests.get(str(traefik_path))
 
         routers = response.json()
         data[0]["Services"] = []
@@ -85,7 +97,7 @@ def homepage_refresh():
                     {
                         title.capitalize(): {
                             "icon": icon,
-                            "href": "http://" + router["rule"].split("`")[1],
+                            "href": "https://" + router["rule"].split("`")[1],
                         }
                     }
                 )
