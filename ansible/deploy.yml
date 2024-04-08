@@ -28,7 +28,7 @@
 
     - name: Run setup.py script with flag
       script:
-        cmd: /path/to/python3 ../scripts/setup.py "{{ customer }}" "{{ traefik_password }}" "{{ deploy }}"
+        cmd: /bin/python3 ../scripts/setup.py "{{ customer }}" "{{ traefik_password }}" "{{ deploy }}"
         chdir: /mnt/shared_data/elemento-marketplace-web
 
     - name: Deploy Docker stack
