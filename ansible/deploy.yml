@@ -26,10 +26,30 @@
     #     version: "main"
     #     clone: yes
 
-    - name: Run setup.py script with flag
-      script:
-        cmd: /bin/python3 ../scripts/setup.py "{{ customer }}" "{{ traefik_password }}" "{{ deploy }}"
-        chdir: /mnt/shared_data/elemento-marketplace-web
+    # - name: Run setup.py script with flag
+    #   script:
+    #     cmd: /bin/python3 /mnt/shared_data/elemento-marketplace-web/scripts/setup.py "{{ customer }}" "{{ traefik_password }}"
+    #     chdir: /mnt/shared_data/elemento-marketplace-web/
+
+    - name: Set permissions for acme.json
+      file:
+        path: "/mnt/shared_data/elemento-marketplace-web/traefik/acme.json"
+        mode: "0600"
+
+    - name: Set permissions for services.yaml
+      file:
+        path: "/mnt/shared_data/elemento-marketplace-web/homepage/config/services.yaml"
+        mode: "0600"
+
+    - name: Copy .env.template into .env, create if not exists
+      ansible.builtin.copy:
+        src: /mnt/shared_data/elemento-marketplace-web/.env.template
+        dest: /mnt/shared_data/elemento-marketplace-web/.env
+        remote_src: yes
+        force: no
+
+    - name: Create Docker overlay network
+      command: docker network create --driver=overlay --attachable web
 
     - name: Deploy Docker stack
       command: docker stack deploy --compose-file /mnt/shared_data/elemento-marketplace-web/docker-compose.yml web
