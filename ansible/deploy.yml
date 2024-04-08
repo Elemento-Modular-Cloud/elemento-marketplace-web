@@ -7,6 +7,12 @@
       dnf:
         update_cache: yes
 
+    - name: Install Python3
+      dnf:
+        name: python3
+        state: present
+        update_cache: yes
+
     - name: Install Docker
       dnf:
         name: docker-ce
