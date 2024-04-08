@@ -1,0 +1,31 @@
+---
+- name: Deploy
+  hosts: all
+  become: true
+  tasks:
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes
+
+    - name: Install Docker Compose
+      apt:
+        name: docker-compose
+        state: present
+        update_cache: yes
+
+    - name: Clone the repository
+      git:
+        repo: http://github.com/Elemento-Modular-Cloud/elemento-marketplace-web
+        dest: /mnt/shared_data/
+        version: "main"
+        clone: yes
+
+    - name: Run setup.py script from inside the scripts folder
+      script:
+        cmd: ../scripts/setup.py
+        chdir: /mnt/shared_data/elemento-marketplace-web
+
+    - name: Deploy Docker stack
+      command: docker stack deploy --compose-file /mnt/shared_data/elemento-marketplace-web/docker-compose.yml web
