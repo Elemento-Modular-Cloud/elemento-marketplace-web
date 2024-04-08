@@ -9,15 +9,22 @@ def flags_setup(args):
     for i in range(len(args)):
         if args[i] in ["-d", "--deploy"]:
             flags["deploy"] = True
-            if not args[i + 1].startswith("-"):
-                flags["stack"] = args[i + 1]
+            try:
+                if not args[i + 1].startswith("-"):
+                        flags["stack"] = args[i + 1]
+            except IndexError:
+                print("WARNING: No stack name provided. Using default.")
             continue
         if args[i] in ["-p", "--path"]:
-            if not args[i + 1].startswith("-"):
-                flags["path"] = args[i + 1]
-                if not os.path.isdir(flags["path"]):
-                    print("ERROR: Path not found.")
-                    exit(1)
+            try:
+                if not args[i + 1].startswith("-"):
+                    flags["path"] = args[i + 1]
+                    if not os.path.isdir(flags["path"]):
+                        print("ERROR: Path not found.")
+                        exit(1)
+            except IndexError:
+                print("ERROR: No path provided.")
+                exit(1)
             continue
         if args[i] in ["-n", "--network"]:
             flags["network"] = True
