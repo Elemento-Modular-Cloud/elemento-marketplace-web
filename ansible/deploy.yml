@@ -1,17 +1,15 @@
 ---
 - name: Deploy
-  hosts: all
+  hosts: localhost # TODO: Change to the server IP
   become: true
   tasks:
-    - name: Install Docker
-      apt:
-        name: docker.io
-        state: present
+    - name: Update cache
+      dnf:
         update_cache: yes
 
-    - name: Install Docker Compose
-      apt:
-        name: docker-compose
+    - name: Install Docker
+      dnf:
+        name: docker-ce
         state: present
         update_cache: yes
 
@@ -22,9 +20,9 @@
     #     version: "main"
     #     clone: yes
 
-    - name: Run setup.py script from inside the scripts folder
+    - name: Run setup.py script with flag
       script:
-        cmd: ../scripts/setup.py
+        cmd: /path/to/python3 ../scripts/setup.py "{{ customer }}" "{{ traefik_password }}" "{{ deploy }}"
         chdir: /mnt/shared_data/elemento-marketplace-web
 
     - name: Deploy Docker stack
