@@ -4,6 +4,31 @@ import subprocess, sys, re, string, os
 ######## UTILS FUNCTIONS ########
 
 
+def flags_setup(args):
+    flags = {"deploy": False, "stack": "production", "path": False, "network": False}
+    for i in range(len(args)):
+        if args[i] in ["-d", "--deploy"]:
+            flags["deploy"] = True
+            if not args[i + 1].startswith("-"):
+                flags["stack"] = args[i + 1]
+            continue
+        if args[i] in ["-p", "--path"]:
+            if not args[i + 1].startswith("-"):
+                flags["path"] = args[i + 1]
+                if not os.path.isdir(flags["path"]):
+                    print("ERROR: Path not found.")
+                    exit(1)
+            continue
+        if args[i] in ["-n", "--network"]:
+            flags["network"] = True
+            continue
+        if args[i] in ["-h", "--help"]:
+            print("python3 setup.py <customer> <traefik_password>")
+            print("For more info check the README.md file.")
+            exit(0)
+    return flags
+
+
 def check_command(command, result):
     if result.returncode != 0:
         print(f"\nError executing command: {command}")
@@ -87,36 +112,34 @@ def network_setup():
 
 def setup():
     if len(sys.argv) < 3:
-        print("ERROR: python3 setup.py <customer> <traefik_password> [-d | --deploy]")
+        print("ERROR: python3 setup.py <customer> <traefik_password>")
         return 1
 
     customer = (sys.argv[1]).strip().lower()
     traefik_password = (sys.argv[2]).strip()
-    try:
-        deploy = (sys.argv[3]).strip().lower()
-    except:
-        deploy = "false"
+    flags = sys.argv[3:]
 
     if any(char in string.punctuation for char in customer):
         print("ERROR: Punctuation is not allowed for the customer's name.")
         return 1
 
-    check_position()
+    flags = flags_setup(flags)
+    if type(flags["path"]) is str:
+        os.chdir(flags["path"])
+    else:
+        check_position()
 
     # Setup
     result = traefik_ba_setup(customer, traefik_password)
     compose_setup(customer, result)
     env_setup()
     permission_setup()
-    network_setup()
+    if flags["network"]:
+        network_setup()
 
     # Deploy?
-    if deploy == "-d" or deploy == "--deploy":
-        try:
-            stack_name = (sys.arhv[4]).strip().lower()
-        except:
-            stack_name = "production"
-
+    if flags["deploy"]:
+        stack_name = (flags["stack"]).strip().lower()
         command = (
             "sudo docker stack deploy --compose-file docker-compose-custom.yml "
             + stack_name

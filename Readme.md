@@ -6,7 +6,7 @@
   - User: `admin`
   - Pass: `change_me`
   - `ftp://admin:change_me@leader_node_ip`
-- One or more containers DB [MySQL](https://hub.docker.com/_/mysql) with dashboard [phpmyadmin](https://hub.docker.com/_/phpmyadmin)
+- One or more containers DB [MariaDB](https://hub.docker.com/_/mariadb) with dashboard [phpmyadmin](https://hub.docker.com/_/phpmyadmin)
   - Server: `mariadb`
   - Username: `root`
   - Password: `password`
@@ -51,17 +51,20 @@ A setup script is available in the `scripts` folder in order to
 - customize the hostname in the docker compose;
 - set the credentials (of traefik basic auth) for the services;
 - setup the permissions of the acme.json and services.yaml files;
-- create the network;
+- create the network (optional);
 - deploy the stack (optional).
 
 ```bash
-python3 scripts/setup.py <customer_name> <password> [-d | --deploy] [stack_name]
+python3 scripts/setup.py <customer_name> <password> [-p] [path] [-n] [-d] [stack_name] [-h]
 ```
 
 1. **customer_name:** used to customize the hostname and to define the username for the basic auth
 2. **password:** for the basic auth
-3. `-d` or `--deploy`: to deploy the stack
-4. **stack_name:** the name of the stack (default: production)
+3. `-p` or `--path`: pass the path to use in order to go to the root of the project
+4. `-n` or `--network`: to create the docker network
+5. `-d` or `--deploy`: to deploy the stack
+6. **stack_name:** the name of the stack (default: production)
+7. `-h` or `--help`
 
 ## Ansible playbook
 
