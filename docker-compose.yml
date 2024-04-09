@@ -10,6 +10,8 @@ services:
     volumes:
       - /mnt/shared_data/elemento-marketplace-web/:/home/admin
       - /mnt/shared_data/elemento-marketplace-web/ftp/passwd:/etc/pure-ftpd/passwd
+      # uncomment for ssl/tls, see https://github.com/stilliard/docker-pure-ftpd#tls
+#      - "/mnt/shared_data/elemento-marketplace-web/ftp/ssl:/etc/ssl/private/"
     deploy:
       labels:
         - "traefik.enable=true"
