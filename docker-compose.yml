@@ -132,6 +132,8 @@ services:
 
   crontab-ui:
     image: alseambusher/crontab-ui
+    volumes:
+      - "/mnt/shared_data/elemento-marketplace-web:/crontab-ui/elemento"
     deploy:
       labels:
         - "traefik.enable=true"

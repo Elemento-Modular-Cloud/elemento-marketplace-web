@@ -41,6 +41,7 @@ In order to change the default values of the docker compose, you can create a `.
 Define an `.env` file in order to set the environment variables of ftp server, mariadb and phpmyadmin.<br>
 To start the stack using docker stack deploy, run the following command with admin privileges:
 ```bash
+chmod -R 755 php
 chmod 600 traefik/acme.json
 chmod 600 homepage/config/services.yaml
 docker network create --driver overlay net

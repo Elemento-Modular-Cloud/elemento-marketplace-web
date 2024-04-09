@@ -11,7 +11,7 @@ def flags_setup(args):
             flags["deploy"] = True
             try:
                 if not args[i + 1].startswith("-"):
-                        flags["stack"] = args[i + 1]
+                    flags["stack"] = args[i + 1]
             except IndexError:
                 print("WARNING: No stack name provided. Using default.")
             continue
@@ -100,7 +100,7 @@ def env_setup():
 
 def permission_setup():
     command = (
-        "sudo chmod 600 traefik/acme.json; sudo chmod 600 homepage/config/services.yaml"
+        "sudo chmod 600 traefik/acme.json; sudo chmod 600 homepage/config/services.yaml; sudo chmod -R 755 php"
     )
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
     check_command(command, result)
