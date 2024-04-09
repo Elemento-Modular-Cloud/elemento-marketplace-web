@@ -236,10 +236,10 @@ services:
       - "587:587"  # ESMTP (explicit TLS => STARTTLS)
       - "993:993"  # IMAP4 (implicit TLS)
     volumes:
-      - ./docker-data/dms/mail-data/:/var/mail/
-      - ./docker-data/dms/mail-state/:/var/mail-state/
-      - ./docker-data/dms/mail-logs/:/var/log/mail/
-      - ./docker-data/dms/config/:/tmp/docker-mailserver/
+      - /mnt/shared_data/elemento-marketplace-web/docker-data/dms/mail-data/:/var/mail/
+      - /mnt/shared_data/elemento-marketplace-web/docker-data/dms/mail-state/:/var/mail-state/
+      - /mnt/shared_data/elemento-marketplace-web/docker-data/dms/mail-logs/:/var/log/mail/
+      - /mnt/shared_data/elemento-marketplace-web/docker-data/dms/config/:/tmp/docker-mailserver/
       - /etc/localtime:/etc/localtime:ro
     restart: always
     stop_grace_period: 1m
@@ -249,6 +249,15 @@ services:
       test: "ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1"
       timeout: 3s
       retries: 0
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.mailserver.rule=Host(`mail.web.elemento.cloud`)"
+        - "traefik.http.routers.mailserver.entrypoints=websecure"
+        - "traefik.http.routers.mailserver.service=api@internal"
+        - "traefik.http.routers.mailserver.tls=true"
+        - "traefik.http.routers.mailserver.tls.certresolver=leresolver"
+        - "traefik.http.routers.mailserver.tls.domains[0].main=mail.web.elemento.cloud"
 
 networks:
   net:

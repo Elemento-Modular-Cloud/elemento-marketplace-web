@@ -74,8 +74,10 @@ ansible-playbook playbook.yaml -e "customer=my_customer traefik_password=my_pass
 
 
 ## Start the Mail service
-To start the mail stack use another VM and run the commands as explained in the "mailu" folder.
-That service works on docker-compose.
+Start the swarm and run the following command to add a user to the mail server (mandatory):
+```bash
+docker exec -ti <container-name> setup email add user@web.elemento.cloud
+```
 
 ### Conventions
 
