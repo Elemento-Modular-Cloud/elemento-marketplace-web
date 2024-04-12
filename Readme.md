@@ -7,11 +7,9 @@
   - Pass: `change_me`
   - `ftp://admin:change_me@leader_node_ip`
 - One or more containers DB [MariaDB](https://hub.docker.com/_/mariadb) with dashboard [phpmyadmin](https://hub.docker.com/_/phpmyadmin)
-  - Server: `mariadb`
-  - Username: `root`
-  - Password: `password`
+
 - Container to execute [cronjob](https://github.com/alseambusher/crontab-ui)
-- One or more containers for mail server with dashboard [Mailu](https://mailu.io/2.0/index.html)
+- One or more containers for mail server with dashboard [Docker Mailserver](https://github.com/docker-mailserver/docker-mailserver)
 - Container front-end (webserser) ([nginx](https://hub.docker.com/_/nginx))
 - Container reverse proxy with SSL [traefik](https://doc.traefik.io/traefik/)
 - Container [PHP FPM](https://hub.docker.com/layers/library/php/fpm-alpine3.19/images/sha256-4df626957fe8907b11d439553e830fbd815737a2c3ad15af912152ef2958ccf9?context=explore) - v7 or later
@@ -30,7 +28,7 @@
 
 
 ### Environment variables
-In order to change the default values of the docker compose, you can create a `.env` file in the root of the project and set the variables you want to change. `.env.template` can be used as a template renaming it to `.env`.
+In order to change the default values and password of the docker compose, you can create a `.env` file in the root of the project and set the variables you want to change. `.env.template` can be used as a template renaming it to `.env`.
 
 ### System design
 
