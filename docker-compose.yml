@@ -226,7 +226,7 @@ services:
   mailserver:
     image: ghcr.io/docker-mailserver/docker-mailserver:latest
     # Provide the FQDN of your mail server here (Your DNS MX record should point to this value)
-    hostname: mail.web.elemento.cloud
+    hostname: email.web.elemento.cloud
     env_file: mailserver.env
     # More information about the mail-server ports:
     # https://docker-mailserver.github.io/docker-mailserver/latest/config/security/understanding-the-ports/
@@ -244,12 +244,6 @@ services:
       - /mnt/shared_data/elemento-marketplace-web/mailserver/dms/config/:/tmp/docker-mailserver/
       - /etc/localtime:/etc/localtime:ro
     stop_grace_period: 1m
-    cap_add:
-      - NET_ADMIN
-    healthcheck:
-      test: "ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1"
-      timeout: 3s
-      retries: 0
     networks:
       - net
     deploy:
