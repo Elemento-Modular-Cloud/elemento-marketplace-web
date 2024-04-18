@@ -50,10 +50,12 @@ services:
       - net
   
   mariadb:
-    image: mariadb:11.4.1-rc
+    image: mariadb:11.3
     env_file: .env
     volumes:
       - /mnt/shared_data/elemento-marketplace-web/mysql_data:/var/lib/mysql
+    #ulimits:
+      #memlock: 262144
     deploy:
       labels:
         - "traefik.enable=false"
@@ -243,12 +245,29 @@ services:
       - /mnt/shared_data/elemento-marketplace-web/mailserver/dms/mail-logs/:/var/log/mail/
       - /mnt/shared_data/elemento-marketplace-web/mailserver/dms/config/:/tmp/docker-mailserver/
       - /etc/localtime:/etc/localtime:ro
+      # SSL cert via traefik generation
+      - /mnt/shared_data/elemento-marketplace-web/traefik/acme.json:/etc/letsencrypt/acme.json:ro
     stop_grace_period: 1m
     networks:
       - net
     deploy:
       labels:
         - "traefik.enable=false"
+  
+  # Dummy container used just to create the SSL cert for the mailserver
+  dummy-service:
+    image: node:latest
+    networks:
+      - net
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.whoami.rule=Host(`email.web.elemento.cloud`)"
+        - "traefik.http.routers.whoami.tls=true"
+        - "traefik.http.routers.whoami.tls.certresolver=leresolver"
+        - "traefik.http.routers.whoami.tls.domains[0].main=email.web.elemento.cloud"
+        - "traefik.http.routers.whoami.entrypoints=websecure"
+        - "traefik.http.services.whoami.loadbalancer.server.port=3000"
 
 networks:
   net:
