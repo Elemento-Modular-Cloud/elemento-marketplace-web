@@ -41,6 +41,12 @@
         path: "/mnt/shared_data/elemento-marketplace-web/homepage/config/services.yaml"
         mode: "0600"
 
+    - name: Set permissions for php
+      file:
+        path: "/mnt/shared_data/elemento-marketplace-web/php"
+        mode: "0755"
+        recurse: true
+    
     - name: Copy .env.template into .env, create if not exists
       ansible.builtin.copy:
         src: /mnt/shared_data/elemento-marketplace-web/.env.template
@@ -49,7 +55,7 @@
         force: no
 
     - name: Create Docker overlay network
-      command: docker network create --driver=overlay --attachable web
+      command: docker network create --driver=overlay net
 
     - name: Deploy Docker stack
       command: docker stack deploy --compose-file /mnt/shared_data/elemento-marketplace-web/docker-compose.yml web
