@@ -1,12 +1,16 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify
 import requests, yaml, re, os
 from constants import icons, titles
 
-homepage_path = os.getenv("HOMEPAGE_PATH", "homepage/config/services.yaml")
-traefik_path = os.getenv("TRAEFIK_PATH", "traefik:8080/api/http/routers")
+homepage_path = os.getenv("HOMEPAGE_PATH")
+traefik_path = os.getenv("TRAEFIK_ROUTE")
+user = os.getenv("USER")
+password = os.getenv("PASSWORD")
 pattern = r"Host\([^)]*\)"
 app = Flask(__name__)
 
+if homepage_path is not None or not traefik_path is not None:
+    app.logger.info("HOMEPAGE_PATH and TRAEFIK_ROUTE must be set!")
 
 def is_custom_service(rule):
     return re.search(pattern, rule) is not None
@@ -19,13 +23,17 @@ def check_server():
 
 @app.route("/api/v1/homepage/update", methods=["POST"])
 def homepage_update():
-    try: 
+    try:
 
         # Open the YAML file for reading
         with open(str(homepage_path), "r") as yaml_file:
             data = yaml.safe_load(yaml_file)
 
-        response = requests.get(str(traefik_path))
+        if user is not None and password is not None:
+            response = requests.get(str(traefik_path), auth=(user, password))
+        else:
+            app.logger.info(f"No authentication provided, using unauthenticated request.")
+            response = requests.get(str(traefik_path))
 
         routers = response.json()
         if data[0]["Services"] == None:
@@ -37,7 +45,7 @@ def homepage_update():
             if (
                 is_custom_service(router["rule"])
                 and name.capitalize() not in keys
-                and name != "homepage"
+                and name != "homepage" and name != "dashboard"
             ):
                 icon = icons[name] if name in icons else ""
                 title = titles[name] if name in titles else name
@@ -45,14 +53,14 @@ def homepage_update():
                     {
                         title.capitalize(): {
                             "icon": icon,
-                            "href": "http://" + router["rule"].split("`")[1],
+                            "href": "https://" + router["rule"].split("`")[1],
                         }
                     }
                 )
 
         with open(str(homepage_path), "w") as yaml_file:
             yaml.dump(data, yaml_file)
-        
+
         return jsonify(data[0]["Services"])
 
     except requests.exceptions.RequestException as e:
@@ -62,13 +70,17 @@ def homepage_update():
 
 @app.route("/api/v1/homepage/refresh", methods=["POST"])
 def homepage_refresh():
-    try: 
+    try:
 
         # Open the YAML file for reading
         with open(str(homepage_path), "r") as yaml_file:
             data = yaml.safe_load(yaml_file)
 
-        response = requests.get(str(traefik_path))
+        if user is not None and password is not None:
+            response = requests.get(str(traefik_path), auth=(user, password))
+        else:
+            app.logger.info(f"No authentication provided, using unauthenticated request.")
+            response = requests.get(str(traefik_path))
 
         routers = response.json()
         data[0]["Services"] = []
@@ -77,7 +89,7 @@ def homepage_refresh():
             name = router["name"].split("@")[0]
             if (
                 is_custom_service(router["rule"])
-                and name != "homepage"
+                and name != "homepage" and name != "dashboard"
             ):
                 icon = icons[name] if name in icons else ""
                 title = titles[name] if name in titles else name
@@ -85,14 +97,14 @@ def homepage_refresh():
                     {
                         title.capitalize(): {
                             "icon": icon,
-                            "href": "http://" + router["rule"].split("`")[1],
+                            "href": "https://" + router["rule"].split("`")[1],
                         }
                     }
                 )
 
         with open(str(homepage_path), "w") as yaml_file:
             yaml.dump(data, yaml_file)
-        
+
         return jsonify(data[0]["Services"])
 
     except requests.exceptions.RequestException as e:
