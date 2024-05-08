@@ -81,11 +81,11 @@ docker exec -ti <container-name> setup email add user@web.elemento.cloud
 ## Start the Mail service (Client side)
 To configure the mail client, use the following settings for Thunderbird:
 Open the Thunderbird client and go to the `Account Settings`:
-[Thunderbird settings](./img/step-1.png)
+![Thunderbird settings](./img/step-1.png)
 Select email esistente, Insert the name, email and password:
-[Thunderbird settings](./img/step-2.png)
+![Thunderbird settings](./img/step-2.png)
 Then, select `Continua`:
-[Thunderbird settings](./img/step-3.png)
+![Thunderbird settings](./img/step-3.png)
 Select `Fatto` and accept the menu pop-up.
 
 ### Conventions
