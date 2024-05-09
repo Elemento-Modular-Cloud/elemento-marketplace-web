@@ -83,7 +83,13 @@ To configure the mail client, use the following settings for Thunderbird:
 Open the Thunderbird client and go to the `Account Settings`:
 ![Thunderbird settings](./img/step-1.png)
 Select email esistente, Insert the name, email and password:
-![Thunderbird settings](./img/step-2.png)
+
+IMAP
+email.web.elemento.cloud STARTSSL 143
+
+SMTP
+email.web.elemento.cloud 587
+
 Then, select `Configura manualmente`:
 ![Thunderbird settings](./img/step-3.png)
 Select `Fatto` and accept the menu pop-up.
