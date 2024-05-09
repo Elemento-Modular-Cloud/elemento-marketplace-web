@@ -91,7 +91,7 @@ SMTP
 email.web.elemento.cloud 587
 
 Then, select `Configura manualmente`:
-![Thunderbird settings](./img/step-3.png)
+![Thunderbird settings](./img/step-2.png)
 Select `Fatto` and accept the menu pop-up.
 
 ### Conventions
