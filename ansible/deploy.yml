@@ -1,11 +1,29 @@
 ---
 - name: Deploy
-  hosts: localhost # TODO: Change to the server IP
+  hosts: web # TODO: Change to the server IP
   become: true
   tasks:
     - name: Update cache
       dnf:
         update_cache: yes
+
+    - name: Install epel-release
+      dnf:
+        name: epel-release
+        state: present
+        update_cache: yes
+
+    - name: Install fail2ban
+      dnf:
+        name: fail2ban
+        state: present
+        update_cache: yes
+
+    - name: Reload service fail2ban
+      systemd:
+        name: fail2ban
+        enabled: true
+        state: started
 
     - name: Install Python3
       dnf:
@@ -13,11 +31,97 @@
         state: present
         update_cache: yes
 
-    - name: Install Docker
+    - name: Install ovs
       dnf:
-        name: docker-ce
+        name: centos-release-nfv-openvswitch
         state: present
         update_cache: yes
+
+    - name: Install openvswitch3
+      dnf:
+        name:
+          - openvswitch3.1.x86_64 
+          - openvswitch3.1-ipsec.x86_64
+        state: present
+        update_cache: yes
+
+    - name: Reload service ovs
+      systemd:
+        name: openvswitch-ipsec
+        enabled: true
+        state: started
+
+    - name: Install gluster
+      dnf:
+        name: centos-release-gluster10
+        state: present
+        update_cache: yes
+
+    - name: Install gluster
+      dnf:
+        name: 
+          - glusterfs-server
+        state: present
+        update_cache: yes
+
+    - name: Reload service glusterd
+      systemd:
+        name: glusterd
+        enabled: true
+        state: started
+
+    - name: Add Docker repo
+      yum_repository:
+        name: docker
+        description: Docker CE
+        baseurl: https://download.docker.com/linux/centos/9/x86_64/stable/
+
+    - name: Install Docker
+      dnf:
+        name:
+        - docker-ce
+        - docker-ce-cli 
+        - containerd.io 
+        - docker-compose-plugin
+        update_cache: true
+        disable_gpg_check: true
+
+    - name: Ensure group "docker" exists with correct gid
+      group:
+        name: docker
+        state: present
+        gid: 1750
+
+
+    - name: Reload service 
+      systemd:
+        name: containerd
+        enabled: true
+        state: started
+
+    - name: Reload service 
+      systemd:
+        name: docker
+        enabled: true
+        state: started
+
+    - name: Install docker-compose
+      pip:
+        name: docker-compose
+        extra_args: --no-cache-dir
+        executable: pip3.9
+
+    - name: Add the user 'elemento-root' to the group 'docker'
+      ansible.builtin.user:
+        name: elemento-root
+        groups: docker
+        append: yes
+
+    - name: Add the user 'elemento-root' to the group 'docker'
+      ansible.builtin.user:
+        name: almalinux
+        groups: docker
+        append: yes
 
     # - name: Clone the repository
     #   git:
