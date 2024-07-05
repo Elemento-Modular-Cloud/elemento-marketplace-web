@@ -5,10 +5,10 @@ services:
     image: stilliard/pure-ftpd:hardened
     env_file: .env
     ports:
-      # - "21:21"
+      - "21:21"
       - "30000-30009:30000-30009" # for passive mode
     volumes:
-      - /mnt/elemento-vault/elemento-marketplace-web/:/home/admin
+      - /mnt/elemento-vault/:/home/admin
       - /mnt/elemento-vault/elemento-marketplace-web/ftp/passwd:/etc/pure-ftpd/passwd
       # uncomment for ssl/tls, see https://github.com/stilliard/docker-pure-ftpd#tls
 #      - "/mnt/elemento-vault/elemento-marketplace-web/ftp/ssl:/etc/ssl/private/"
@@ -155,7 +155,7 @@ services:
       - net
 
   services-discovery:
-    image: ghcr.io/nicolagutierrez/traefik-discovery:latest
+    image: ghcr.io/elemento-modular-cloud/traefik-discovery:latest
     env_file: .env
     depends_on:
       - homepage
@@ -202,7 +202,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "8080:8080"
+      # - "8080:8080"
     volumes:
       - "/mnt/elemento-vault/elemento-marketplace-web/traefik/traefik.yml:/etc/traefik/traefik.yml"
       - "/mnt/elemento-vault/elemento-marketplace-web/traefik/acme.json:/acme.json"
