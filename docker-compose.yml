@@ -6,7 +6,7 @@ services:
     env_file: .env
     ports:
       - "21:21"
-      - "30000-30009:30000-30009" # for passive mode
+      - "30000-30099:30000-30099" # for passive mode
     environment:
       - FTP_MAX_CLIENTS=50
     volumes:
