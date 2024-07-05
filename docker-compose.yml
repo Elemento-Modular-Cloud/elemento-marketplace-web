@@ -7,6 +7,8 @@ services:
     ports:
       - "21:21"
       - "30000-30009:30000-30009" # for passive mode
+    environment:
+      - FTP_MAX_CLIENTS=50
     volumes:
       - /mnt/elemento-vault/:/home/admin
       - /mnt/elemento-vault/elemento-marketplace-web/ftp/passwd:/etc/pure-ftpd/passwd
