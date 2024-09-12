@@ -2,4 +2,6 @@
 .env
 docker-compose-custom.yml
 php
+mysql_data
+mailserver
 .vscode
