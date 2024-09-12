@@ -1,0 +1,55 @@
+version: '3'
+services:
+  looplab-mariadb:
+    image: mariadb:11.3
+    container_name: looplab-mariadb
+    restart: unless-stopped
+    volumes:
+      - /mnt/elemento-vault/elemento-marketplace-web/mysql_data:/var/lib/mysql
+    networks:
+      - looplab-prestashop_network
+  looplab-prestashop:
+    container_name: looplab-prestashop
+    image: php-custom-apache-wwwdata
+    user: www-data
+    restart: no
+    volumes:
+      - /mnt/elemento-vault/elemento-marketplace-web/php/src/public:/var/www/html/:z
+    depends_on:
+      - looplab-mariadb
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      # DB_SERVER: looplab-mariadb
+      # DB_NAME: prestashop
+      # DB_USER: root
+      # DB_PASSWD: admin
+      # PS_INSTALL_DB: 1
+      PS_DEV_MODE: 1
+      # PS_DEMO_MODE: 1
+      # PS_INSTALL_AUTO: s1
+      PS_DOMAIN: web1.elemento.cloud:8080
+      PS_FOLDER_ADMIN: admin
+      ADMIN_MAIL: demo@prestashop.com
+      ADMIN_PASSWD: prestashop_demo
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://web1.elemento.cloud:8080" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - looplab-prestashop_network
+  php-my-admin:
+    image: phpmyadmin/phpmyadmin
+    container_name: php-my-admin
+    restart: always
+    ports:
+      - 8090:80
+    environment:
+      PMA_HOST: looplab-mariadb
+      PMA_PORT: 3306
+    networks:
+      - looplab-prestashop_network
+networks:
+    looplab-prestashop_network:

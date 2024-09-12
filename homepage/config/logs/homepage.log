@@ -2149,3 +2149,73 @@
   }
 ]
 [2024-03-18T17:46:14.498Z] error: <credentialedProxyHandler> HTTP Error 500 calling https://web.elemento.cloud:9443/api/endpoints/2/docker/containers/json?all=1
+[2024-05-30T10:42:08.281Z] info: docker.yaml was copied to the config folder
+[2024-05-30T10:42:08.474Z] info: custom.css was copied to the config folder
+[2024-05-30T10:42:08.603Z] info: custom.js was copied to the config folder
+[2024-05-30T10:42:09.084Z] info: kubernetes.yaml was copied to the config folder
+[2024-05-30T10:42:09.104Z] error: Failed to load services.yaml, please check for errors
+[2024-05-30T10:42:09.105Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-05-30T10:42:14.799Z] error: Failed to load services.yaml, please check for errors
+[2024-05-30T10:42:14.799Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-05-30T10:42:16.326Z] error: Failed to load services.yaml, please check for errors
+[2024-05-30T10:42:16.327Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-05-30T10:42:18.257Z] error: Failed to load services.yaml, please check for errors
+[2024-05-30T10:42:18.257Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-06-12T06:27:13.150Z] error: Failed to load services.yaml, please check for errors
+[2024-06-12T06:27:13.150Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-06-12T06:27:13.338Z] error: Failed to load services.yaml, please check for errors
+[2024-06-12T06:27:13.338Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-06-12T06:27:14.308Z] error: Failed to load services.yaml, please check for errors
+[2024-06-12T06:27:14.308Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-06-12T06:33:29.661Z] error: Failed to load services.yaml, please check for errors
+[2024-06-12T06:33:29.661Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-06-12T06:39:04.840Z] error: Failed to load services.yaml, please check for errors
+[2024-06-12T06:39:04.840Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T09:39:48.116Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T09:39:48.116Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T09:39:59.059Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T09:39:59.059Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T09:40:05.080Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T09:40:05.080Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T09:40:11.735Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T09:40:11.735Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T09:40:12.433Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T09:40:12.433Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T09:40:40.676Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T09:40:40.676Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T09:40:54.773Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T09:40:54.773Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T09:51:18.720Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T09:51:18.721Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T09:51:18.728Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T09:51:18.729Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T09:51:19.242Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T09:51:19.242Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T09:52:23.987Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T09:52:23.988Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T09:52:25.449Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T09:52:25.450Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T09:52:27.122Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T09:52:27.122Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T09:56:08.676Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T09:56:08.677Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T09:58:23.376Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T09:58:23.376Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T09:58:24.027Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T09:58:24.027Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T09:58:40.776Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T09:58:40.776Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T10:01:55.708Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T10:01:55.709Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T10:37:35.526Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T10:37:35.527Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T10:37:35.755Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T10:37:35.755Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T10:37:36.311Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T10:37:36.311Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T11:26:11.242Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T11:26:11.242Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T11:27:01.812Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T11:27:01.813Z] error: TypeError: Cannot read properties of null (reading 'map')
+[2024-07-05T11:29:00.804Z] error: Failed to load services.yaml, please check for errors
+[2024-07-05T11:29:00.804Z] error: TypeError: Cannot read properties of null (reading 'map')

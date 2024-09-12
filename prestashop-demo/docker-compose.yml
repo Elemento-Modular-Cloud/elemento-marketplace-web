@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  mariadb:
+    image: mariadb:11.3
+    container_name: "mariadb-$PORT"
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - PORT=$PORT
+      # MYSQL_DATABASE: prestashop
+    networks:
+      - prestashop_network
+  prestashop:
+    container_name: "prestashop-$PORT"
+    image: prestashop/prestashop:8.1.1-8.1
+    restart: no
+    depends_on:
+      - mariadb
+    ports:
+      - "$PORT:80"
+    environment:
+      - DB_SERVER=mariadb-$PORT
+      - DB_NAME=prestashop
+      - DB_USER=root
+      - DB_PASSWD=admin
+      - PS_INSTALL_DB=1
+      - PS_DEV_MODE=1
+      - PS_DEMO_MODE=1
+      - PS_INSTALL_AUTO=1
+      - PS_DOMAIN=web1.elemento.cloud:$PORT
+      - PS_FOLDER_ADMIN=admin
+      - ADMIN_MAIL=demo@prestashop.com
+      - ADMIN_PASSWD=prestashop_demo
+      - PORT=$PORT
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://web1.elemento.cloud:$PORT" ]
+      start_period: "5s"
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - prestashop_network
+networks:
+    prestashop_network:

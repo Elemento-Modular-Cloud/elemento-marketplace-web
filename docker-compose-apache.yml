@@ -7,8 +7,6 @@ services:
     ports:
       - "21:21"
       - "30000-30099:30000-30099" # for passive mode
-    environment:
-      - FTP_MAX_CLIENTS=50
     volumes:
       - /mnt/elemento-vault/:/home/admin
       - /mnt/elemento-vault/elemento-marketplace-web/ftp/passwd:/etc/pure-ftpd/passwd
@@ -32,7 +30,7 @@ services:
       placement:
         max_replicas_per_node: 1
     networks:
-      - net
+      - net-apache
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
@@ -52,7 +50,7 @@ services:
       placement:
         max_replicas_per_node: 1
     networks:
-      - net
+      - net-apache
   
   mariadb:
     image: mariadb:11.3
@@ -66,38 +64,19 @@ services:
         - "traefik.enable=false"
       replicas: 1
     networks:
-      - net
+      - net-apache
 
   php:
     # image: php:8.1-fpm
-    # image: php-custom
-    image: prestashop/prestashop:8.1.1-8.1-fpm
+    image: php-custom-apache
+    # image: prestashop/prestashop:8.1.1-8.1
     # build: php
     volumes:
       - /mnt/elemento-vault/elemento-marketplace-web/php/src/public:/var/www/html/:z
-    user: root
+    # user: www-data
     # sysctls:
     # privileged: true
     # entrypoint: bash -c "docker-php-entrypoint /usr/local/sbin/php-fpm"
-    deploy:
-      labels:
-        - "traefik.enable=false"
-      mode: replicated
-      replicas: 1
-      placement:
-        max_replicas_per_node: 1
-        constraints:
-          - node.hostname == web1
-    networks:
-      - net
-
-  nginx:
-    image: nginx:alpine
-    depends_on:
-      - php
-    volumes:
-      - /mnt/elemento-vault/elemento-marketplace-web/php/src/public:/var/www/html/
-      - /mnt/elemento-vault/elemento-marketplace-web/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
     deploy:
       labels:
         - "traefik.enable=true"
@@ -114,7 +93,32 @@ services:
         constraints:
           - node.hostname == web1
     networks:
-      - net
+      - net-apache
+
+  # nginx:
+  #   image: nginx:alpine
+  #   depends_on:
+  #     - php
+  #   volumes:
+  #     - /mnt/elemento-vault/elemento-marketplace-web/php/src/public:/var/www/html/
+  #     - /mnt/elemento-vault/elemento-marketplace-web/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+  #   deploy:
+  #     labels:
+  #       - "traefik.enable=true"
+  #       - "traefik.http.routers.nginx.rule=Host(`nginx.web.elemento.cloud`)"
+  #       - "traefik.http.routers.nginx.entrypoints=websecure"
+  #       - "traefik.http.routers.nginx.tls=true"
+  #       - "traefik.http.routers.nginx.tls.certresolver=leresolver"
+  #       - "traefik.http.routers.nginx.tls.domains[0].main=nginx.web.elemento.cloud"
+  #       - "traefik.http.services.nginx.loadbalancer.server.port=80"
+  #     mode: replicated
+  #     replicas: 1
+  #     placement:
+  #       max_replicas_per_node: 1
+  #       constraints:
+  #         - node.hostname == web1
+  #   networks:
+  #     - net
 
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
@@ -146,7 +150,7 @@ services:
       placement:
         max_replicas_per_node: 1
     networks:
-      - net
+      - net-apache
 
   crontab-ui:
     image: alseambusher/crontab-ui
@@ -168,10 +172,10 @@ services:
       placement:
         max_replicas_per_node: 1
     networks:
-      - net
+      - net-apache
 
   services-discovery:
-    image: ghcr.io/elemento-modular-cloud/traefik-discovery:latest
+    image: ghcr.io/nicolagutierrez/traefik-discovery:latest
     env_file: .env
     depends_on:
       - homepage
@@ -184,7 +188,7 @@ services:
       placement:
         max_replicas_per_node: 1
     networks:
-      - net
+      - net-apache
 
   check-services:
     image: alpine:latest
@@ -211,13 +215,14 @@ services:
       restart_policy:
         condition: on-failure
     networks:
-      - net
+      - net-apache
 
   traefik:
     image: traefik:v2.11
     ports:
       - "80:80"
       - "443:443"
+      # - "21:21"
       # - "8080:8080"
     volumes:
       - "/mnt/elemento-vault/elemento-marketplace-web/traefik/traefik.yml:/etc/traefik/traefik.yml"
@@ -239,7 +244,7 @@ services:
         constraints:
           - node.role==manager
     networks:
-      - net
+      - net-apache
     
   mailserver:
     image: ghcr.io/docker-mailserver/docker-mailserver:latest
@@ -265,7 +270,7 @@ services:
       - /mnt/elemento-vault/elemento-marketplace-web/traefik/acme.json:/etc/letsencrypt/acme.json:ro
     stop_grace_period: 1m
     networks:
-      - net
+      - net-apache
     deploy:
       labels:
         - "traefik.enable=false"
@@ -274,7 +279,7 @@ services:
   dummy-service:
     image: node:latest
     networks:
-      - net
+      - net-apache
     deploy:
       labels:
         - "traefik.enable=true"
@@ -286,6 +291,6 @@ services:
         - "traefik.http.services.whoami.loadbalancer.server.port=3000"
 
 networks:
-  net:
+  net-apache:
     external: true
-    name: "net"
+    name: "net-apache"
