@@ -1,5 +1,5 @@
 .DS_Store
 .env
 docker-compose-custom.yml
-./php
+php
 .vscode
