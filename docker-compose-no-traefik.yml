@@ -1,0 +1,82 @@
+version: "3.8"
+
+services:
+  ftp-server:
+    image: stilliard/pure-ftpd:latest
+    ports:
+      - "21:21"
+      - "30000-30099:30000-30099" # for passive mode
+    volumes:
+      - /home/almalinux/prestademo:/home/admin
+      - /home/almalinux/elemento-marketplace-web/ftp/passwd:/etc/pure-ftpd/passwd
+      # uncomment for ssl/tls, see https://github.com/stilliard/docker-pure-ftpd#tls
+#      - "/home/almalinux/prestademo/ftp/ssl:/etc/ssl/private/"
+    networks:
+      - net-no-traefik
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    environment:
+      PMA_HOST: mariadb
+      PMA_PORT: 3306
+    depends_on:
+      - mariadb
+    ports:
+      - "8090:80"
+    networks:
+      - net-no-traefik
+  
+  mariadb:
+    image: mariadb:11.3
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+    volumes:
+      - /home/almalinux/prestademo/mysql_data:/var/lib/mysql
+    networks:
+      - net-no-traefik
+
+  prestashop:
+    container_name: "prestashop"
+    image: prestashop/prestashop:8.1.1-8.1
+    restart: no
+    depends_on:
+      - mariadb
+    ports:
+      - "80:80"
+    environment:
+      - DB_SERVER=mariadb
+      - DB_NAME=prestashop
+      - DB_USER=root
+      - DB_PASSWD=admin
+      - PS_INSTALL_DB=0
+      - PS_DEV_MODE=0
+      - PS_DEMO_MODE=1
+      - PS_INSTALL_AUTO=0
+      - PS_DOMAIN=prestashop.web.elemento.cloud
+      - PS_FOLDER_ADMIN=pannello
+      - ADMIN_MAIL=demo@prestashop.com
+      - ADMIN_PASSWD=prestashop_demo
+    volumes:
+      - /home/almalinux/prestademo/prestashop_data:/var/www/html
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost" ]
+      start_period: "5s"
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - net-no-traefik
+
+  crontab-ui:
+    image: alseambusher/crontab-ui
+    volumes:
+      - "/home/almalinux/prestademo:/crontab-ui/elemento"
+    ports:
+      - "8000:8000"
+    networks:
+      - net-no-traefik
+
+networks:
+  net-no-traefik:
+    external: false
+    name: "net-no-traefik"
